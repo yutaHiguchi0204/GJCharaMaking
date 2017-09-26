@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Assets">
+      <UniqueIdentifier>2c7cbbf8-1cc6-4912-90a0-66c58d06ff18</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dds;dlg;fbx;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{bd2ac77e-95f6-48f6-b2f5-ae2d08ac4ca7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Master">
+      <UniqueIdentifier>{a19af363-0107-488c-b287-0b6fea44bc45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{f73c3162-405a-4b35-a30c-f34b5b11f5b9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="StepTimer.h" />
+    <ClInclude Include="Classes\Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\CustomizeScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\SingletonDirector.h">
+      <Filter>Master</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Constant.h">
+      <Filter>Master</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\PlayScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\SceneManager.h">
+      <Filter>Master</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Classes\Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\CustomizeScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\PlayScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\SceneManager.cpp">
+      <Filter>Master</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="directx.ico">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="settings.manifest">
+      <Filter>Assets</Filter>
+    </Manifest>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\ground_200m.FBX">
+      <Filter>Model</Filter>
+    </None>
+    <None Include="Assets\skyDome.FBX">
+      <Filter>Model</Filter>
+    </None>
+  </ItemGroup>
+</Project>
