@@ -9,7 +9,7 @@
 // including header
 #include <vector>
 
-//class
+// class
 class Character 
 {
 public:
@@ -24,8 +24,8 @@ public:
 
 	void SetParentModel(); //モデルの親子関係を構築
 
-	void SetOfset();       //モデルのオフセットをセット
+	void SetOffset();       //モデルのオフセットをセット
 private:
-	std::vector<Character> partsnumber_ ; //パーツ番号
+	std::vector<Character> partsNumber_; //パーツ番号
 
 };
