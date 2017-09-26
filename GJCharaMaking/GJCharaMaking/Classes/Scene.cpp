@@ -12,13 +12,18 @@
 #include "SceneManager.h"
 
 // namespace
+using namespace DirectX;
+using namespace DirectX::SimpleMath;
 using namespace std;
 
 // method
 
 // constructor
-Scene::Scene()
+Scene::Scene(Microsoft::WRL::ComPtr<ID3D11Device> device, Microsoft::WRL::ComPtr<ID3D11DeviceContext> context)
 {
+	device_ = device;
+	context_ = context;
+
 	// ‰ŠúƒV[ƒ“‚Ìİ’è
 	sceneDirector_ = CUSTOMIZE;
 }

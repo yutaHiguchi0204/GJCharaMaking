@@ -14,6 +14,9 @@
     <Filter Include="Model">
       <UniqueIdentifier>{f73c3162-405a-4b35-a30c-f34b5b11f5b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{13fdfce6-3ba2-47f9-935a-66bb1336e36b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -37,6 +40,12 @@
     <ClInclude Include="Classes\SceneManager.h">
       <Filter>Master</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\Object.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Camera.h">
+      <Filter>Master</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -54,6 +63,12 @@
     <ClCompile Include="Classes\SceneManager.cpp">
       <Filter>Master</Filter>
     </ClCompile>
+    <ClCompile Include="Classes\Object.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Camera.cpp">
+      <Filter>Master</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
@@ -69,11 +84,23 @@
     </Manifest>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\ground_200m.FBX">
+    <MeshContentTask Include="Assets\ground_200m.FBX">
       <Filter>Model</Filter>
-    </None>
-    <None Include="Assets\skyDome.FBX">
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\skyDome.FBX">
       <Filter>Model</Filter>
-    </None>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\Body.FBX">
+      <Filter>Model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\Head1.FBX">
+      <Filter>Model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\Head2.FBX">
+      <Filter>Model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\Leg.FBX">
+      <Filter>Model</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>

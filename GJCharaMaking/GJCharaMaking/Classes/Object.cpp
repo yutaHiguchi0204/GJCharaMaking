@@ -13,8 +13,8 @@ using namespace DirectX::SimpleMath;
 using namespace std;
 
 // static member
-Microsoft::WRL::ComPtr<ID3D11Device>		Object::d3dDevice_;				// デバイス
-Microsoft::WRL::ComPtr<ID3D11DeviceContext> Object::d3dContext_;			// デバイスコンテキスト
+Microsoft::WRL::ComPtr<ID3D11Device>		Object::device_;				// デバイス
+Microsoft::WRL::ComPtr<ID3D11DeviceContext> Object::context_;				// デバイスコンテキスト
 Camera*										Object::camera_;				// カメラ
 unique_ptr<CommonStates>					Object::states_;				// 汎用描画ステート
 unique_ptr<EffectFactory>					Object::factory_;				// エフェクトファクトリ
@@ -37,17 +37,17 @@ Object::Object()
 // @param	デバイス（ID3D11Device）、デバイスコンテキスト（ID3D11DeviceContext）、カメラ（Camera*）
 // @return	none
 // =================================================
-void Object::InitializeStatic(Microsoft::WRL::ComPtr<ID3D11Device> d3dDevice, Microsoft::WRL::ComPtr<ID3D11DeviceContext> d3dContext, Camera* camera)
+void Object::InitializeStatic(Microsoft::WRL::ComPtr<ID3D11Device> device, Microsoft::WRL::ComPtr<ID3D11DeviceContext> context, Camera* camera)
 {
-	d3dDevice_ = d3dDevice;
-	d3dContext_ = d3dContext;
+	device_ = device;
+	context_ = context;
 	camera_ = camera;
 
 	// 汎用描画ステート生成
-	states_ = make_unique<CommonStates>(d3dDevice_.Get());
+	states_ = make_unique<CommonStates>(device_.Get());
 
 	// エフェクトファクトリ生成
-	factory_ = make_unique<EffectFactory>(d3dDevice_.Get());
+	factory_ = make_unique<EffectFactory>(device_.Get());
 	factory_->SetDirectory(L"Resources/CMedia");
 
 	// 減算描画用のブレンドステートを作成
@@ -62,7 +62,7 @@ void Object::InitializeStatic(Microsoft::WRL::ComPtr<ID3D11Device> d3dDevice, Mi
 	desc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ONE;
 	desc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_REV_SUBTRACT;
 	desc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
-	HRESULT ret = d3dDevice_->CreateBlendState(&desc, &blendStateSubtract_);
+	HRESULT ret = device_->CreateBlendState(&desc, &blendStateSubtract_);
 }
 
 // =================================================
@@ -73,7 +73,7 @@ void Object::InitializeStatic(Microsoft::WRL::ComPtr<ID3D11Device> d3dDevice, Mi
 void Object::SetSubtractive()
 {
 	// 減算描画を設定
-	d3dContext_->OMSetBlendState(blendStateSubtract_, nullptr, 0xffffff);
+	context_->OMSetBlendState(blendStateSubtract_, nullptr, 0xffffff);
 }
 
 // =================================================
@@ -116,7 +116,7 @@ void Object::Draw()
 	{
 		// ３Ｄモデルの描画
 		model_->Draw(
-			d3dContext_.Get(),
+			context_.Get(),
 			*states_,
 			world_,
 			camera_->GetViewMatrix(),
@@ -136,7 +136,7 @@ void Object::DrawSubtractive()
 	{
 		// ３Ｄモデルの描画
 		model_->Draw(
-			d3dContext_.Get(),
+			context_.Get(),
 			*states_,
 			world_,
 			camera_->GetViewMatrix(),
@@ -156,7 +156,7 @@ void Object::LoadModel(const wchar_t* fileName)
 {
 	// モデルの読み込み
 	model_ = Model::CreateFromCMO(
-		d3dDevice_.Get(),
+		device_.Get(),
 		fileName,
 		*factory_
 	);

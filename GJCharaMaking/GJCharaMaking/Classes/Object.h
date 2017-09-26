@@ -17,8 +17,8 @@
 class Object
 {
 private:
-	static Microsoft::WRL::ComPtr<ID3D11Device>            d3dDevice_;		// デバイス
-	static Microsoft::WRL::ComPtr<ID3D11DeviceContext>     d3dContext_;		// デバイスコンテキスト
+	static Microsoft::WRL::ComPtr<ID3D11Device>            device_;			// デバイス
+	static Microsoft::WRL::ComPtr<ID3D11DeviceContext>     context_;		// デバイスコンテキスト
 	static Camera* camera_;													// カメラ
 	static std::unique_ptr<DirectX::CommonStates> states_;					// 汎用描画ステート
 	static std::unique_ptr<DirectX::EffectFactory> factory_;				// エフェクトファクトリ
@@ -39,8 +39,8 @@ public:
 
 	// 静的メンバ変数の初期化
 	static void InitializeStatic(
-		Microsoft::WRL::ComPtr<ID3D11Device> d3dDevice,
-		Microsoft::WRL::ComPtr<ID3D11DeviceContext> d3dContext,
+		Microsoft::WRL::ComPtr<ID3D11Device> device,
+		Microsoft::WRL::ComPtr<ID3D11DeviceContext> context,
 		Camera* camera
 	);
 
