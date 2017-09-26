@@ -7,6 +7,8 @@
 
 // including header
 #include "SingletonDirector.h"
+#include <CommonStates.h>
+#include <wrl\client.h>
 
 // class
 class Scene
@@ -19,13 +21,18 @@ public:
 		PLAY
 	};
 
+protected:
+	Microsoft::WRL::ComPtr<ID3D11Device> device_;				// デバイス
+	Microsoft::WRL::ComPtr<ID3D11DeviceContext> context_;		// デバイスコンテキスト
+
 private:
 	SCENE sceneDirector_;				// シーン管理
 
 public:
-	Scene();
+	Scene(Microsoft::WRL::ComPtr<ID3D11Device> device, Microsoft::WRL::ComPtr<ID3D11DeviceContext> context);
 	virtual ~Scene() {};
 
+	virtual void Initialize() = 0;		// initialize
 	virtual void Update() = 0;			// update
 	virtual void Draw() = 0;			// draw
 

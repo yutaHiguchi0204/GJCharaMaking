@@ -12,10 +12,11 @@
 class PlayScene : public Scene
 {
 public:
-	PlayScene() {};
+	PlayScene(Microsoft::WRL::ComPtr<ID3D11Device> device, Microsoft::WRL::ComPtr<ID3D11DeviceContext> context);
 	~PlayScene() {};
 
-	void Update();			// update
-	void Draw();			// draw
+	void Initialize() override;		// initialize
+	void Update() override;			// update
+	void Draw() override;			// draw
 };
 

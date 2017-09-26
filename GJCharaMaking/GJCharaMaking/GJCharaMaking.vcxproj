@@ -161,8 +161,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Classes\Camera.h" />
     <ClInclude Include="Classes\Constant.h" />
     <ClInclude Include="Classes\CustomizeScene.h" />
+    <ClInclude Include="Classes\Object.h" />
     <ClInclude Include="Classes\PlayScene.h" />
     <ClInclude Include="Classes\Scene.h" />
     <ClInclude Include="Classes\SceneManager.h" />
@@ -172,7 +174,9 @@
     <ClInclude Include="StepTimer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Classes\Camera.cpp" />
     <ClCompile Include="Classes\CustomizeScene.cpp" />
+    <ClCompile Include="Classes\Object.cpp" />
     <ClCompile Include="Classes\PlayScene.cpp" />
     <ClCompile Include="Classes\Scene.cpp" />
     <ClCompile Include="Classes\SceneManager.cpp" />
@@ -195,12 +199,12 @@
     <Manifest Include="settings.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\ground_200m.FBX">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="Assets\skyDome.FBX">
-      <FileType>Document</FileType>
-    </None>
+    <MeshContentTask Include="Assets\Body.FBX" />
+    <MeshContentTask Include="Assets\ground_200m.FBX" />
+    <MeshContentTask Include="Assets\Head1.FBX" />
+    <MeshContentTask Include="Assets\Head2.FBX" />
+    <MeshContentTask Include="Assets\Leg.FBX" />
+    <MeshContentTask Include="Assets\skyDome.FBX" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
