@@ -20,12 +20,12 @@ public:
 	void Update();
 	void Draw();
 
-	void LoadModel();      //モデルデータの読み込み
+	void LoadModel();                     // モデルデータの読み込み
 
-	void SetParentModel(); //モデルの親子関係を構築
+	void SetParentModel();                // モデルの親子関係を構築
 
-	void SetOffset();       //モデルのオフセットをセット
+	void SetOffset();                     // モデルのオフセットをセット
 private:
-	std::vector<Character> partsNumber_; //パーツ番号
+	std::vector<Character> partsNumber_;  // パーツ番号
 
 };

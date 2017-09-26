@@ -1,5 +1,5 @@
 /* =====================================================================
-//! @param	@  [Character]class src
+//! @param		[Character]class src
 //! @create		Yuki Matsumaru
 //! @date		17/09/26
 ===================================================================== */
@@ -60,7 +60,7 @@ void Character::SetParentModel()
 }
 
 // =================================================
-// @brief	SetOfset
+// @brief	SetOffset
 // @param	none
 // @return	none
 // =================================================
