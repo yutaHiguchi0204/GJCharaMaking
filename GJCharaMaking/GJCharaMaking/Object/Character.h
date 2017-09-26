@@ -26,6 +26,6 @@ public:
 
 	void SetOffset();                     // モデルのオフセットをセット
 private:
-	std::vector<Character> partsNumber_;  // パーツ番号
+	std::vector<Character> parts_;        // パーツ配列
 
 };
