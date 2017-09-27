@@ -10,6 +10,7 @@
 #include <d3d11_1.h>
 #include <Effects.h>
 #include <Model.h>
+#include <string>
 #include <WICTextureLoader.h>
 #include "Camera.h"
 
@@ -51,7 +52,7 @@ public:
 	void Draw();																													// 描画
 	void DrawSubtractive();																											// 減算描画
 
-	void LoadModel(const wchar_t* fileName);																						// モデルのロード
+	void LoadModel(const std::wstring file);																						// モデルのロード
 
 	void SetScale(const DirectX::SimpleMath::Vector3& scale)			{ scale_ = scale; };										// スケーリングの設定
 	void SetRotate(const DirectX::SimpleMath::Vector3& rotate)			{ rotate_ = rotate; };										// 回転角の設定（オイラー角）

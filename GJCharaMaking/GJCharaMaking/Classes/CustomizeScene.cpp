@@ -35,11 +35,8 @@ void CustomizeScene::Initialize()
 	Object::InitializeStatic(device_, context_, camera_.get());
 
 	// 天球モデルの読み込み
-	skyDome_ = make_unique<Object>();
-	skyDome_->LoadModel(L"Resources/CMedia/skyDome.cmo");
-
-	// 地形と天球のライティングを無効にする
-	skyDome_->DisableLighting();
+	skyDome_ = make_unique<IModel>();
+	skyDome_->Initialize(L"skyDome");
 }
 
 // =================================================

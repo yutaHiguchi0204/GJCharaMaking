@@ -7,7 +7,7 @@
 // including header
 #include "Scene.h"
 #include "Camera.h"
-#include "Object.h"
+#include "IModel.h"
 
 // class
 class CustomizeScene : public Scene
@@ -15,7 +15,7 @@ class CustomizeScene : public Scene
 private:
 	std::unique_ptr<Camera> camera_;				// ƒJƒƒ‰
 
-	std::unique_ptr<Object> skyDome_;				// “V‹…
+	std::unique_ptr<IModel> skyDome_;				// “V‹…
 
 public:
 	CustomizeScene(Microsoft::WRL::ComPtr<ID3D11Device> device, Microsoft::WRL::ComPtr<ID3D11DeviceContext> context);
