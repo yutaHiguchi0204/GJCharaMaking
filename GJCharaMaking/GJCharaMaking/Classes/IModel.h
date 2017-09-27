@@ -14,7 +14,7 @@
 // class
 class IModel
 {
-private:
+protected:
 	std::vector<std::shared_ptr<Object>> parts_;			// ƒp[ƒcî•ñ
 
 public:

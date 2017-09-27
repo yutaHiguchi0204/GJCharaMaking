@@ -19,7 +19,11 @@ using namespace std;
 // =================================================
 void Character::Initialize(const wstring file)
 {
+	parts_.push_back(make_unique<Object>());
+	parts_.back()->LoadModel(file);
 
+	// ライティング無効
+	parts_.back()->DisableLighting();
 }
 
 // =================================================
@@ -38,36 +42,6 @@ void Character::Update()
 // @return	none
 // =================================================
 void Character::Draw()
-{
-
-}
-
-// =================================================
-// @brief	LoadModel
-// @param	none
-// @return	none
-// =================================================
-void Character::LoadModel()
-{
-
-}
-
-// =================================================
-// @brief	SetParentModel
-// @param	none
-// @return	none
-// =================================================
-void Character::SetParentModel()
-{
-
-}
-
-// =================================================
-// @brief	SetOffset
-// @param	none
-// @return	none
-// =================================================
-void Character::SetOffset()
 {
 
 }

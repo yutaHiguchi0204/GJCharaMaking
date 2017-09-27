@@ -5,5 +5,5 @@
 ===================================================================== */
 
 // íËêî
-const float		SIZE_WINDOW_WIDTH		= 800.0f;			// â°ïù
-const float		SIZE_WINDOW_HEIGHT		= 600.0f;			// ècïù
+const int		SIZE_WINDOW_WIDTH		= 800;			// â°ïù
+const int		SIZE_WINDOW_HEIGHT		= 600;			// ècïù
