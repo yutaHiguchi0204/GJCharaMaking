@@ -33,7 +33,7 @@ void PlayScene::Initialize()
 
 	// 天球モデルの読み込み
 	skyDome_ = make_unique<Object>();
-	skyDome_->LoadModel(L"Resources/CMedia/skyDome.cmo");
+	skyDome_->LoadModel(L"skyDome");
 
 	//地形と天球ライティングを無効にする
 	skyDome_->DisableLighting();
