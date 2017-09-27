@@ -162,8 +162,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Classes\Camera.h" />
+    <ClInclude Include="Classes\Character.h" />
     <ClInclude Include="Classes\Constant.h" />
     <ClInclude Include="Classes\CustomizeScene.h" />
+    <ClInclude Include="Classes\IModel.h" />
     <ClInclude Include="Classes\Object.h" />
     <ClInclude Include="Classes\PlayScene.h" />
     <ClInclude Include="Classes\Scene.h" />
@@ -175,7 +177,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Classes\Camera.cpp" />
+    <ClCompile Include="Classes\Character.cpp" />
     <ClCompile Include="Classes\CustomizeScene.cpp" />
+    <ClCompile Include="Classes\IModel.cpp" />
     <ClCompile Include="Classes\Object.cpp" />
     <ClCompile Include="Classes\PlayScene.cpp" />
     <ClCompile Include="Classes\Scene.cpp" />
