@@ -13,6 +13,7 @@
 // 名前空間
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
+using namespace std;
 
 // メンバ関数の定義
 
@@ -35,9 +36,11 @@ void TextureManager::Initializer(ID3D11Device* device, ID3D11DeviceContext* cont
 //! 引　数		ファイル名（wchar_t*）、テクスチャ（ID3D11ShaderResourceView**）
 //! 戻り値		なし
 ===================================================================== */
-void TextureManager::Load(wchar_t* fileName, ID3D11ShaderResourceView** texture)
+void TextureManager::Load(wstring file, ID3D11ShaderResourceView** texture)
 {
-	CreateWICTextureFromFile(m_device, fileName, nullptr, texture);
+	const wstring fileName = L"Resources/Texture2D/" + file + L".png";
+
+	CreateWICTextureFromFile(m_device, fileName.c_str(), nullptr, texture);
 }
 
 /* =====================================================================
