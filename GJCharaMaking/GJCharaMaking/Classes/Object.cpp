@@ -149,15 +149,17 @@ void Object::DrawSubtractive()
 
 // =================================================
 // @brief	モデルのロード
-// @param	ファイル名（wchar_t*）
+// @param	ファイル名（wstring）
 // @return	none
 // =================================================
-void Object::LoadModel(const wchar_t* fileName)
+void Object::LoadModel(const wstring file)
 {
+	const wstring fileName = L"Resources/CMedia/" + file + L".cmo";
+
 	// モデルの読み込み
 	model_ = Model::CreateFromCMO(
 		device_.Get(),
-		fileName,
+		fileName.c_str(),
 		*factory_
 	);
 }
