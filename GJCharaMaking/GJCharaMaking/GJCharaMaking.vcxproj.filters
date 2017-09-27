@@ -46,6 +46,12 @@
     <ClInclude Include="Classes\Camera.h">
       <Filter>Master</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\IModel.h">
+      <Filter>Master</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Character.h">
+      <Filter>Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -68,6 +74,12 @@
     </ClCompile>
     <ClCompile Include="Classes\Camera.cpp">
       <Filter>Master</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\IModel.cpp">
+      <Filter>Master</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Character.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
