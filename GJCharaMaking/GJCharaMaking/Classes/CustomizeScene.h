@@ -16,6 +16,7 @@ private:
 	std::unique_ptr<Camera> camera_;				// ƒJƒƒ‰
 
 	std::unique_ptr<IModel> skyDome_;				// “V‹…
+	std::unique_ptr<IModel> ground_;				// ’n–Ê
 
 public:
 	CustomizeScene(Microsoft::WRL::ComPtr<ID3D11Device> device, Microsoft::WRL::ComPtr<ID3D11DeviceContext> context);

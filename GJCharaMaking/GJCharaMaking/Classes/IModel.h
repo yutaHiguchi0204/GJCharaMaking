@@ -15,7 +15,7 @@
 class IModel
 {
 private:
-	std::vector<std::unique_ptr<Object>> parts_;								// パーツ情報
+	std::vector<std::shared_ptr<Object>> parts_;			// パーツ情報
 
 public:
 	IModel() {};
@@ -24,4 +24,6 @@ public:
 	virtual void Initialize(const std::wstring file);		// initialize
 	virtual void Update();									// update
 	virtual void Draw();									// draw
+
+	std::shared_ptr<Object> GetRootParts() { return parts_.front(); }
 };
