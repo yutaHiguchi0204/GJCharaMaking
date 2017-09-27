@@ -7,10 +7,16 @@
 
 // include
 #include "Scene.h"
+#include "Camera.h"
+#include "Object.h"
 
 //class
 class PlayScene : public Scene
 {
+private:
+	std::unique_ptr<Camera> camera_;			// ÉJÉÅÉâ
+
+	std::unique_ptr<Object> skyDome_;			// ìVãÖ
 public:
 	PlayScene(Microsoft::WRL::ComPtr<ID3D11Device> device, Microsoft::WRL::ComPtr<ID3D11DeviceContext> context);
 	~PlayScene() {};
