@@ -6,6 +6,7 @@
 
 // including header
 #include "CustomizeScene.h"
+#include "CharaData.h"
 #include "Constant.h"
 
 // namespace
@@ -33,6 +34,10 @@ void CustomizeScene::Initialize()
 
 	// 静的メンバの設定
 	Object::InitializeStatic(device_, context_, camera_.get());
+
+	// パーツデータの読み込み
+	CharaData& data = CharaData::GetInstance();
+	data.ImportData();
 
 	// 天球モデルの読み込み
 	skyDome_ = make_unique<IModel>();
