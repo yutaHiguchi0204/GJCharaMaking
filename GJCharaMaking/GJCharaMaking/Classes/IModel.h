@@ -15,7 +15,7 @@
 class IModel
 {
 private:
-	std::vector<std::shared_ptr<Object>> parts_;								// パーツ情報
+	std::vector<std::shared_ptr<Object>> parts_;			// パーツ情報
 
 public:
 	IModel() {};
