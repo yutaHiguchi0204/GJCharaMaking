@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+
+# Not Marge Contents
+*.log
+*.tlog
+*.db
+*.suo
+*.exp
+*.ilk
+*.pdb
+*.idb
