@@ -63,6 +63,6 @@ void CustomizeScene::Update()
 // =================================================
 void CustomizeScene::Draw()
 {
-	// 天球の更新
+	// 天球の描画
 	skyDome_->Draw();
 }

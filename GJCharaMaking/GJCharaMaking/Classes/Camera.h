@@ -33,7 +33,7 @@ public:
 	virtual void Update();											// 更新処理
 
 	inline const DirectX::SimpleMath::Matrix& GetViewMatrix()		{ return view_; };				// ビュー行列の取得
-	inline const DirectX::SimpleMath::Matrix& GetProjectionMatrix() { return proj_; };				// プロジェクション行列の取得
+	inline const DirectX::SimpleMath::Matrix& GetProjectionMatrix()	{ return proj_; };				// プロジェクション行列の取得
 
 	void SetEyePos(const DirectX::SimpleMath::Vector3& pos)			{ eyePos_ = pos; };				// 視点の設定
 	void SetRefPos(const DirectX::SimpleMath::Vector3& pos)			{ refPos_ = pos; };				// 注視点の設定
