@@ -3,29 +3,25 @@
 // @create	Yuki Matsumaru
 // @date	17/09/26
 ================================================================*/
-
 #pragma once
 
 // including header
+#include <string>
 #include <vector>
+#include "IModel.h"
 
 // class
-class Character 
+class Character : public IModel
 {
 public:
-	Character();
-	~Character();
+	Character() {};
+	~Character() {};
 
-	void Initialize();
-	void Update();
-	void Draw();
+	virtual void Initialize(const std::wstring file) override;
+	virtual void Update() override;
+	virtual void Draw() override;
 
-	void LoadModel();                     // モデルデータの読み込み
-
-	void SetParentModel();                // モデルの親子関係を構築
-
-	void SetOffset();                     // モデルのオフセットをセット
-private:
-	std::vector<Character> parts_;        // パーツ配列
-
+	virtual void LoadModel() = 0;                     // モデルデータの読み込み
+	virtual void SetParentModel() = 0;                // モデルの親子関係を構築
+	virtual void SetOffset() = 0;                     // モデルのオフセットをセット
 };

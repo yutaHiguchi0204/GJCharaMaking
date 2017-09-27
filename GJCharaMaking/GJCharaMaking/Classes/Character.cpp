@@ -7,6 +7,9 @@
 // including header
 #include "Character.h"
 
+// namespace
+using namespace std;
+
 // method
 
 // =================================================
@@ -14,7 +17,7 @@
 // @param	none
 // @return	none
 // =================================================
-void Character::Initialize()
+void Character::Initialize(const wstring file)
 {
 
 }
