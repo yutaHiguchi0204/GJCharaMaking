@@ -12,6 +12,7 @@
 #include <d3d11_1.h>
 #include <SimpleMath.h>
 #include <SpriteBatch.h>
+#include <string>
 #include "Constant.h"
 
 // クラスの定義
@@ -34,7 +35,7 @@ public:
 	void Initializer(ID3D11Device* device, ID3D11DeviceContext* context);
 
 	// テクスチャのロード
-	void Load(wchar_t* fileName, ID3D11ShaderResourceView** texture);
+	void Load(std::wstring file, ID3D11ShaderResourceView** texture);
 
 	// ブレンドステートの設定
 	void SetBlendState();
