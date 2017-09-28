@@ -58,6 +58,12 @@
     <ClInclude Include="Classes\CharaData.h">
       <Filter>Data</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\DXTKManager.h">
+      <Filter>Master</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\TextureManager.h">
+      <Filter>Master</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -89,6 +95,9 @@
     </ClCompile>
     <ClCompile Include="Classes\CharaData.cpp">
       <Filter>Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\TextureManager.cpp">
+      <Filter>Master</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

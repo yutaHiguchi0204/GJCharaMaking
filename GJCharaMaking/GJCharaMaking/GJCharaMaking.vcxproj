@@ -166,12 +166,14 @@
     <ClInclude Include="Classes\CharaData.h" />
     <ClInclude Include="Classes\Constant.h" />
     <ClInclude Include="Classes\CustomizeScene.h" />
+    <ClInclude Include="Classes\DXTKManager.h" />
     <ClInclude Include="Classes\IModel.h" />
     <ClInclude Include="Classes\Object.h" />
     <ClInclude Include="Classes\PlayScene.h" />
     <ClInclude Include="Classes\Scene.h" />
     <ClInclude Include="Classes\SceneManager.h" />
     <ClInclude Include="Classes\SingletonDirector.h" />
+    <ClInclude Include="Classes\TextureManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="StepTimer.h" />
@@ -186,6 +188,7 @@
     <ClCompile Include="Classes\PlayScene.cpp" />
     <ClCompile Include="Classes\Scene.cpp" />
     <ClCompile Include="Classes\SceneManager.cpp" />
+    <ClCompile Include="Classes\TextureManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="pch.cpp">
