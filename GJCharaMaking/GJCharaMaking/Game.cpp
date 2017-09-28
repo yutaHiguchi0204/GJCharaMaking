@@ -7,6 +7,7 @@
 
 #include "Classes\Object.h"
 #include "Classes\SceneManager.h"
+#include "Classes\TextureManager.h"
 
 extern void ExitGame();
 
@@ -39,8 +40,12 @@ void Game::Initialize(HWND window, int width, int height)
     m_timer.SetFixedTimeStep(true);
     m_timer.SetTargetElapsedSeconds(1.0 / 60);
     */
+	TextureManager& tm = TextureManager::GetInstance();
+	tm.Initializer(m_d3dDevice.Get(), m_d3dContext.Get());
+
 	SceneManager& sm = SceneManager::GetInstance();
 	sm.Initialize(m_d3dDevice, m_d3dContext);
+
 }
 
 // Executes the basic game loop.
