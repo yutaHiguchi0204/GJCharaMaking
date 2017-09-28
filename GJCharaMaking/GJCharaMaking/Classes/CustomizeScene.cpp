@@ -46,6 +46,11 @@ void CustomizeScene::Initialize()
 	// プレイヤーの読み込み
 	player_ = make_unique<Player>();
 	player_->Initialize(CharaData::CHARA_PARTS_NUM);
+
+	// パーツビューの読み込み
+	partsView_ = make_unique<PartsView>();
+	partsView_->Initialize();
+
 }
 
 // =================================================
@@ -63,6 +68,10 @@ void CustomizeScene::Update()
 
 	// プレイヤーの更新
 	player_->Update();
+
+	// パーツビューの更新
+	partsView_->Update();
+
 }
 
 // =================================================
@@ -77,4 +86,7 @@ void CustomizeScene::Draw()
 
 	// プレイヤーの描画
 	player_->Draw();
+
+	// パーツビューの描画
+	partsView_->Draw();
 }

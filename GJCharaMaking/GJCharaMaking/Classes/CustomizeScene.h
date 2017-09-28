@@ -9,6 +9,7 @@
 #include "Camera.h"
 #include "IModel.h"
 #include "Player.h"
+#include "PartsView.h"
 
 // class
 class CustomizeScene : public Scene
@@ -19,6 +20,8 @@ private:
 	std::unique_ptr<IModel> skyDome_;				// 天球
 
 	std::unique_ptr<Player> player_;				// プレイヤー
+
+	std::unique_ptr<PartsView> partsView_;			// パーツビュー
 
 public:
 	CustomizeScene(Microsoft::WRL::ComPtr<ID3D11Device> device, Microsoft::WRL::ComPtr<ID3D11DeviceContext> context);

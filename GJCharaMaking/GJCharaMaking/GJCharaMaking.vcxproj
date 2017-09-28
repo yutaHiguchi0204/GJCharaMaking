@@ -166,6 +166,7 @@
     <ClInclude Include="Classes\DXTKManager.h" />
     <ClInclude Include="Classes\IModel.h" />
     <ClInclude Include="Classes\Object.h" />
+    <ClInclude Include="Classes\PartsView.h" />
     <ClInclude Include="Classes\Player.h" />
     <ClInclude Include="Classes\PlayScene.h" />
     <ClInclude Include="Classes\Scene.h" />
@@ -183,6 +184,7 @@
     <ClCompile Include="Classes\CustomizeScene.cpp" />
     <ClCompile Include="Classes\IModel.cpp" />
     <ClCompile Include="Classes\Object.cpp" />
+    <ClCompile Include="Classes\PartsView.cpp" />
     <ClCompile Include="Classes\Player.cpp" />
     <ClCompile Include="Classes\PlayScene.cpp" />
     <ClCompile Include="Classes\Scene.cpp" />
