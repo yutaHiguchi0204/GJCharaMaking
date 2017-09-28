@@ -25,11 +25,26 @@ public:
 	};
 
 private:
+	enum COLUMN_DATA
+	{
+		NONE = -1,
+		PARTS_NO,
+		MODEL_DATA,
+		PANEL_DATA
+	};
+
+	struct PartsData
+	{
+		int partsNo;						// パーツ番号
+		std::wstring modelFileData;			// パーツモデルのファイル名
+		std::wstring panelFileData;			// パネルのファイル名
+	};
+
 	// ファイル名
 	const std::wstring PARTS_DATA_FILE_NAME = L"Resources/CharaData/charaData.csv";
 
 	// キャラパーツデータ
-	std::vector<std::wstring> charaPartsData[CHARA_PARTS_NUM];
+	std::vector<PartsData> charaPartsData[CHARA_PARTS_NUM];
 
 private:
 	friend class SingletonDirector<CharaData>;

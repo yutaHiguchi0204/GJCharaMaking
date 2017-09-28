@@ -20,6 +20,9 @@
     <Filter Include="Data">
       <UniqueIdentifier>{d1a003ce-438a-4136-a860-f0529097a9a2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{838e4c88-7aaf-4387-a240-bb57df43223c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -67,11 +70,17 @@
     <ClInclude Include="Classes\Player.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\PartsView.h">
-      <Filter>Object</Filter>
-    </ClInclude>
     <ClInclude Include="Classes\Resource2D.h">
       <Filter>Master</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\PartsGenrePanel.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\PartsView.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\PartsPanel.h">
+      <Filter>GUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -113,6 +122,9 @@
     </ClCompile>
     <ClCompile Include="Classes\Resource2D.cpp">
       <Filter>Master</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\PartsView.cpp">
+      <Filter>GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

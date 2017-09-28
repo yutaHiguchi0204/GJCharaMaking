@@ -50,15 +50,23 @@ void CharaData::ImportData()
 	}
 
 	// データ登録
-	int partsNum = -1;
+	int partsNum = NONE;
 	for (auto itr = tmp.begin(); itr != tmp.end();)
 	{
+		PartsData data;
+
 		if (stoi(*itr) == 1)
 		{
+			// パネル番号を設定
 			partsNum++;
 		}
 
-		charaPartsData[partsNum].push_back(*(++itr));
-		itr++;
+		// モデル、パーツそれぞれのファイル名を設定
+		data.partsNo = stoi(*(itr++));
+		data.modelFileData = (*(itr++));
+		data.panelFileData = (*(itr++));
+
+		// パーツデータの登録
+		charaPartsData[partsNum].push_back(data);
 	}
 }

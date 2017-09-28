@@ -7,13 +7,21 @@
 
 // including header
 #include "Resource2D.h"
-#include <CommonStates.h>
-#include <wrl\client.h>
+#include <vector>
+#include "PartsGenrePanel.h"
+#include "PartsPanel.h"
 
 // class
 class PartsView : public Resource2D
 {
+private:
+	std::vector<PartsGenrePanel> partsGenrePanel_;			// ジャンルボタン
+	std::vector<PartsPanel> partsPanel_;					// パーツボタン
+
 public:
 	PartsView() {};
 	virtual ~PartsView() {};
+
+	void LoadPanel();			// 全パネルをロード
+	void DrawPanel();			// 全パネルを描画
 };
