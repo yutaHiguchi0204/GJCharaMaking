@@ -3,24 +3,25 @@
 // @create	Yuki Matsumaru
 // @date	17/09/27
 ================================================================*/
-
 #pragma once
 
 // including header
-#include <CommonStates.h>
-#include <wrl\client.h>
+#include "Resource2D.h"
+#include <vector>
+#include "PartsGenrePanel.h"
+#include "PartsPanel.h"
 
 // class
-class PartsView
+class PartsView : public Resource2D
 {
 private:
-	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> partsBoard;	// パーツビューのテクスチャハンドル
+	std::vector<PartsGenrePanel> partsGenrePanel_;			// ジャンルボタン
+	std::vector<PartsPanel> partsPanel_;					// パーツボタン
 
 public:
 	PartsView() {};
 	virtual ~PartsView() {};
 
-	void Initialize();
-	void Update() {};
-	void Draw();
+	void LoadPanel();			// 全パネルをロード
+	void DrawPanel();			// 全パネルを描画
 };

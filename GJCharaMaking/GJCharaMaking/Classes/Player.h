@@ -3,7 +3,6 @@
 // @create	Kazushi Shinohara
 // @date	17/09/27
 ================================================================*/
-
 #pragma once
 
 // include
