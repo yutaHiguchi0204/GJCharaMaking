@@ -10,6 +10,7 @@
 
 #include <CommonStates.h>
 #include <SpriteBatch.h>
+#include <Mouse.h>
 
 // クラスの定義
 class DXTKManager : public SingletonDirector<DXTKManager>
@@ -23,6 +24,9 @@ public:
 
 	// スプライトバッチ
 	std::unique_ptr<DirectX::SpriteBatch> m_spriteBatch;
+
+	// マウス
+	std::unique_ptr<DirectX::Mouse> mouse_;
 
 private:
 	friend class SingletonDirector<DXTKManager>;
@@ -43,6 +47,10 @@ public:
 
 		// スプライトバッチ
 		m_spriteBatch = std::make_unique<DirectX::SpriteBatch>(context);
+
+		// マウスの作成
+		mouse_ = std::make_unique<DirectX::Mouse>();
+
 	}
 
 	// ステートの更新処理
