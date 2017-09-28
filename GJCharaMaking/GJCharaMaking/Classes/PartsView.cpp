@@ -25,7 +25,7 @@ void PartsView::Initialize()
 {
 	// パーツビューモデルの読み込み
 	TextureManager& tm = TextureManager::GetInstance();
-	tm.Load(L"partsView", partsBoard.GetAddressOf());
+	tm.Load(L"customView", partsBoard.GetAddressOf());
 }
 
 // =================================================
