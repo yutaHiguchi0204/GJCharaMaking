@@ -7,8 +7,8 @@
 #pragma once
 
 // including header
-#include "Camera.h"
-#include "Object.h"
+#include<CommonStates.h>
+#include <wrl\client.h>
 
 // class
 class PartsView
@@ -21,8 +21,6 @@ public:
 	virtual ~PartsView() {};
 
 	void Initialize();
-
 	void Update();
-
 	void Draw();
 };

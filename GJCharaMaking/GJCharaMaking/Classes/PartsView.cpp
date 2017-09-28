@@ -5,7 +5,7 @@
 ===================================================================== */
 
 // including header
-#include "Partsview.h"
+#include "PartsView.h"
 #include "Constant.h"
 #include "TextureManager.h"
 
@@ -25,7 +25,7 @@ void PartsView::Initialize()
 {
 	// パーツビューモデルの読み込み
 	TextureManager& tm = TextureManager::GetInstance();
-	tm.Load(L"partsView",partsBoard.GetAddressOf());
+	tm.Load(L"partsView", partsBoard.GetAddressOf());
 }
 
 // =================================================
@@ -35,8 +35,7 @@ void PartsView::Initialize()
 // =================================================
 void PartsView::Update()
 {
-	// パーツビューの更新
-	
+
 }
 
 // =================================================
@@ -48,6 +47,6 @@ void PartsView::Draw()
 {
 	// パーツビューの描画
 	TextureManager& tm = TextureManager::GetInstance();
-	tm.Draw(partsBoard.Get(), Vector2(20.0f, 20.0f));
+	tm.Draw(partsBoard.Get(), Vector2(32.0f, 32.0f));
 	
 }
