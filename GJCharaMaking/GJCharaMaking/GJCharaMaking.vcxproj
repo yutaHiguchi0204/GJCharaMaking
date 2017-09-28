@@ -52,10 +52,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ImportGroup Label="ExtensionSettings">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.props" />
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\MeshContentTask.props" />
-  </ImportGroup>
+  <ImportGroup Label="ExtensionSettings" />
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
@@ -169,6 +166,7 @@
     <ClInclude Include="Classes\DXTKManager.h" />
     <ClInclude Include="Classes\IModel.h" />
     <ClInclude Include="Classes\Object.h" />
+    <ClInclude Include="Classes\PartsView.h" />
     <ClInclude Include="Classes\PlayScene.h" />
     <ClInclude Include="Classes\Scene.h" />
     <ClInclude Include="Classes\SceneManager.h" />
@@ -185,6 +183,7 @@
     <ClCompile Include="Classes\CustomizeScene.cpp" />
     <ClCompile Include="Classes\IModel.cpp" />
     <ClCompile Include="Classes\Object.cpp" />
+    <ClCompile Include="Classes\PartsView.cpp" />
     <ClCompile Include="Classes\PlayScene.cpp" />
     <ClCompile Include="Classes\Scene.cpp" />
     <ClCompile Include="Classes\SceneManager.cpp" />
@@ -216,8 +215,5 @@
     <MeshContentTask Include="Assets\skyDome.FBX" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\MeshContentTask.targets" />
-  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
 </Project>

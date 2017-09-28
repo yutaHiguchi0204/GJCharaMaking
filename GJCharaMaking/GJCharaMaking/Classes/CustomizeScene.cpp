@@ -47,6 +47,10 @@ void CustomizeScene::Initialize()
 	ground_ = make_unique<IModel>();
 	ground_->Initialize(L"ground_200m");
 	ground_->GetRootParts()->SetTranslate(Vector3(0, -1.0f, 0));
+
+	//パーツビューの読み込み
+	partsView_ = make_unique<PartsView>();
+	partsView_->Initialize();
 }
 
 // =================================================
@@ -64,6 +68,9 @@ void CustomizeScene::Update()
 
 	// 地面の更新
 	ground_->Update();
+
+	//パーツビューの更新
+	partsView_->Update();
 }
 
 // =================================================
@@ -78,4 +85,8 @@ void CustomizeScene::Draw()
 
 	// 地面の描画
 	ground_->Draw();
+
+	//パーツビューの描画
+	partsView_->Draw();
+
 }

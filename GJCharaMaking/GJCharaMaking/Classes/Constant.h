@@ -3,6 +3,7 @@
 //! @create		Yuta Higuchi
 //! @date		17/09/26
 ===================================================================== */
+#pragma once
 
 // ’è”
 const int		SIZE_WINDOW_WIDTH		= 800;			// ‰¡•
