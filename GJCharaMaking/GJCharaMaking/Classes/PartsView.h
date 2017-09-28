@@ -3,24 +3,17 @@
 // @create	Yuki Matsumaru
 // @date	17/09/27
 ================================================================*/
-
 #pragma once
 
 // including header
+#include "Resource2D.h"
 #include <CommonStates.h>
 #include <wrl\client.h>
 
 // class
-class PartsView
+class PartsView : public Resource2D
 {
-private:
-	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> partsBoard;	// パーツビューのテクスチャハンドル
-
 public:
 	PartsView() {};
 	virtual ~PartsView() {};
-
-	void Initialize();
-	void Update() {};
-	void Draw();
 };

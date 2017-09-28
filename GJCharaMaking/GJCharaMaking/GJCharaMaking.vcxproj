@@ -169,6 +169,7 @@
     <ClInclude Include="Classes\PartsView.h" />
     <ClInclude Include="Classes\Player.h" />
     <ClInclude Include="Classes\PlayScene.h" />
+    <ClInclude Include="Classes\Resource2D.h" />
     <ClInclude Include="Classes\Scene.h" />
     <ClInclude Include="Classes\SceneManager.h" />
     <ClInclude Include="Classes\SingletonDirector.h" />
@@ -184,9 +185,9 @@
     <ClCompile Include="Classes\CustomizeScene.cpp" />
     <ClCompile Include="Classes\IModel.cpp" />
     <ClCompile Include="Classes\Object.cpp" />
-    <ClCompile Include="Classes\PartsView.cpp" />
     <ClCompile Include="Classes\Player.cpp" />
     <ClCompile Include="Classes\PlayScene.cpp" />
+    <ClCompile Include="Classes\Resource2D.cpp" />
     <ClCompile Include="Classes\Scene.cpp" />
     <ClCompile Include="Classes\SceneManager.cpp" />
     <ClCompile Include="Classes\TextureManager.cpp" />

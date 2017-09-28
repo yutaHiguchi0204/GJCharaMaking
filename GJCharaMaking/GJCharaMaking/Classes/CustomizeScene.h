@@ -3,6 +3,7 @@
 //! @create		Yuta Higuchi
 //! @date		17/09/26
 ===================================================================== */
+#pragma once
 
 // including header
 #include "Scene.h"

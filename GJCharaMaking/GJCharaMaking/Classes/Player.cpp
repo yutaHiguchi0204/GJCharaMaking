@@ -28,7 +28,7 @@ void Player::Update()
 	}
 
 	// ローテーションさせる
-	rot += 0.01f;
+	rot -= 0.01f;
 	GetRootParts()->SetRotate(Vector3(0, rot, 0));
 }
 

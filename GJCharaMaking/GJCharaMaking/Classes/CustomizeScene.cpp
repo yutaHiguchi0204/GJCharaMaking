@@ -49,8 +49,7 @@ void CustomizeScene::Initialize()
 
 	// パーツビューの読み込み
 	partsView_ = make_unique<PartsView>();
-	partsView_->Initialize();
-
+	partsView_->Initialize(L"customView");
 }
 
 // =================================================
@@ -68,10 +67,6 @@ void CustomizeScene::Update()
 
 	// プレイヤーの更新
 	player_->Update();
-
-	// パーツビューの更新
-	partsView_->Update();
-
 }
 
 // =================================================
@@ -88,5 +83,5 @@ void CustomizeScene::Draw()
 	player_->Draw();
 
 	// パーツビューの描画
-	partsView_->Draw();
+	partsView_->Draw(Vector2(32.0f, 32.0f));
 }

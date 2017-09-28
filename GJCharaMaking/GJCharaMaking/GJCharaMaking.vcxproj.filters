@@ -70,6 +70,9 @@
     <ClInclude Include="Classes\PartsView.h">
       <Filter>Object</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\Resource2D.h">
+      <Filter>Master</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -108,8 +111,8 @@
     <ClCompile Include="Classes\Character.cpp">
       <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\PartsView.cpp">
-      <Filter>Object</Filter>
+    <ClCompile Include="Classes\Resource2D.cpp">
+      <Filter>Master</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -132,18 +135,6 @@
     <MeshContentTask Include="Assets\skyDome.FBX">
       <Filter>Model</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\Head1.FBX">
-      <Filter>Model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\Head2.FBX">
-      <Filter>Model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\Body1.FBX">
-      <Filter>Model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\Leg1.FBX">
-      <Filter>Model</Filter>
-    </MeshContentTask>
     <MeshContentTask Include="Assets\Body2.FBX">
       <Filter>Model</Filter>
     </MeshContentTask>
@@ -151,6 +142,18 @@
       <Filter>Model</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\Leg2.FBX">
+      <Filter>Model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\Body1.FBX">
+      <Filter>Model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\Head1.FBX">
+      <Filter>Model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\Head2.FBX">
+      <Filter>Model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\Leg1.FBX">
       <Filter>Model</Filter>
     </MeshContentTask>
   </ItemGroup>
