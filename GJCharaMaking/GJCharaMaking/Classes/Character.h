@@ -6,8 +6,6 @@
 #pragma once
 
 // including header
-#include <string>
-#include <vector>
 #include "IModel.h"
 
 // class
@@ -17,11 +15,9 @@ public:
 	Character() {};
 	~Character() {};
 
-	virtual void Initialize(const std::wstring file) override;
-	virtual void Update() override;
-	virtual void Draw() override;
+	virtual void Initialize(int partsNum);				// 初期化
 
-	virtual void LoadModel() = 0;                     // モデルデータの読み込み
-	virtual void SetParentModel() = 0;                // モデルの親子関係を構築
-	virtual void SetOffset() = 0;                     // モデルのオフセットをセット
+	virtual void LoadModel() = 0;						// モデルデータの読み込み
+	virtual void SetParentParts() = 0;					// パーツの親子関係を構築
+	virtual void SetOffset() = 0;						// パーツのローカル座標の設定
 };

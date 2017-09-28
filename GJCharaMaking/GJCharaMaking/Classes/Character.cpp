@@ -1,8 +1,8 @@
-/* =====================================================================
-//! @param		[Character] class src
-//! @create		Yuki Matsumaru
-//! @date		17/09/26
-===================================================================== */
+/*===============================================================
+// @param	[Character] class src
+// @create	Yuki Matsumaru
+// @date	17/09/26
+================================================================*/
 
 // including header
 #include "Character.h"
@@ -13,35 +13,27 @@ using namespace std;
 // method
 
 // =================================================
-// @brief	Initialize
+// @brief	initialize
 // @param	none
 // @return	none
 // =================================================
-void Character::Initialize(const wstring file)
+void Character::Initialize(int partsNum)
 {
-	parts_.push_back(make_unique<Object>());
-	parts_.back()->LoadModel(file);
+	// 可変長配列の設定
+	parts_.resize(partsNum);
 
-	// ライティング無効
-	parts_.back()->DisableLighting();
-}
+	// インスタンス設定
+	for (int i = 0; i < partsNum; i++)
+	{
+		parts_.at(i) = make_shared<Object>();
+	}
 
-// =================================================
-// @brief	update
-// @param	none
-// @return	none
-// =================================================
-void Character::Update()
-{
+	// モデルの読み込み
+	this->LoadModel();
 
-}
+	// パーツの親子関係の構築
+	this->SetParentParts();
 
-// =================================================
-// @brief	draw
-// @param	none
-// @return	none
-// =================================================
-void Character::Draw()
-{
-
+	// パーツのローカル座標の設定
+	this->SetOffset();
 }
