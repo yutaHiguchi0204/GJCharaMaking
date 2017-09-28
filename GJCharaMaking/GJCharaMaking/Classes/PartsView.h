@@ -21,6 +21,6 @@ public:
 	virtual ~PartsView() {};
 
 	void Initialize();
-	void Update();
+	void Update() {};
 	void Draw();
 };
