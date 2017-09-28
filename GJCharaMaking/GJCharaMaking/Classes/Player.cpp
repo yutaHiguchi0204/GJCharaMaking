@@ -6,6 +6,7 @@
 
 // including header
 #include "Player.h"
+#include "CharaData.h"
 
 // namespace
 using namespace DirectX;
@@ -14,54 +15,37 @@ using namespace std;
 
 // method
 
-Player::Player()
-{
-	Initialize();
-}
-
-Player::~Player()
-{
-}
-
 // =================================================
-// @brief	Initialize
+// @brief	モデルの読み込み
 // @param	none
 // @return	none
 // =================================================
-void Player::Initialize()
+void Player::LoadModel()
 {
-	//
-	parts_.resize(PARTS_NUM);
-	parts_[PARTS_LEG]->LoadModel(L"Resources/CMedia/Leg.cmo");
-	parts_[PARTS_BODY]->LoadModel(L"Resources/CMedia/Body.cmo");
-	parts_[PARTS_HEAD]->LoadModel(L"Resources/CMedia/Head.cmo");
-
-	// 親子関係の構築(子供に親をセット)
-	parts_[PARTS_BODY]->SetParent(&parts_[PARTS_LEG]);
-	parts_[PARTS_HEAD]->SetParent(&parts_[PARTS_BODY]);
-	
-	// 親からのオフセット(ローカルの座標ずれ)
-	parts_[PARTS_BODY]->SetTranslate(Vector3(0, 0.4f, 0.1f));
-	parts_[PARTS_HEAD]->SetTranslate(Vector3(0, 0.5f, 0));
+	// モデル読込
+	parts_.at(CharaData::HEAD)->LoadModel(L"Head3");
+	parts_.at(CharaData::BODY)->LoadModel(L"Body2");
+	parts_.at(CharaData::LEG)->LoadModel(L"Leg2");
 }
 
 // =================================================
-// @brief	Update
+// @brief	パーツの親子関係の構築
 // @param	none
 // @return	none
 // =================================================
-void Player::Update()
+void Player::SetParentParts()
 {
-	
+	parts_.at(CharaData::BODY)->SetParent(parts_.at(CharaData::LEG).get());
+	parts_.at(CharaData::HEAD)->SetParent(parts_.at(CharaData::BODY).get());
 }
 
 // =================================================
-// @brief	Draw
+// @brief	パーツのローカル座標の設定
 // @param	none
 // @return	none
 // =================================================
-void Player::Draw()
+void Player::SetOffset()
 {
-	
+	parts_.at(CharaData::BODY)->SetTranslate(Vector3(0, 0, 0));
+	parts_.at(CharaData::HEAD)->SetTranslate(Vector3(0, 0, 0));
 }
-

@@ -14,7 +14,7 @@
 // class
 class CharaData : public SingletonDirector<CharaData>
 {
-private:
+public:
 	enum CHARA_PARTS
 	{
 		HEAD,
@@ -24,6 +24,7 @@ private:
 		CHARA_PARTS_NUM
 	};
 
+private:
 	// ƒtƒ@ƒCƒ‹–¼
 	const std::wstring PARTS_DATA_FILE_NAME = L"Resources/CharaData/charaData.csv";
 

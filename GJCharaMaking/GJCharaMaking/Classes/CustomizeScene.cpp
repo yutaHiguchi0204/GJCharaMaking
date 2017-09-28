@@ -43,10 +43,9 @@ void CustomizeScene::Initialize()
 	skyDome_ = make_unique<IModel>();
 	skyDome_->Initialize(L"skyDome");
 
-	// 地面モデルの読み込み
-	ground_ = make_unique<IModel>();
-	ground_->Initialize(L"ground_200m");
-	ground_->GetRootParts()->SetTranslate(Vector3(0, -1.0f, 0));
+	// プレイヤーの読み込み
+	player_ = make_unique<Player>();
+	player_->Initialize(CharaData::CHARA_PARTS_NUM);
 }
 
 // =================================================
@@ -62,8 +61,8 @@ void CustomizeScene::Update()
 	// 天球の更新
 	skyDome_->Update();
 
-	// 地面の更新
-	ground_->Update();
+	// プレイヤーの更新
+	player_->Update();
 }
 
 // =================================================
@@ -76,6 +75,6 @@ void CustomizeScene::Draw()
 	// 天球の描画
 	skyDome_->Draw();
 
-	// 地面の描画
-	ground_->Draw();
+	// プレイヤーの描画
+	player_->Draw();
 }

@@ -19,7 +19,7 @@ using namespace std;
 // =================================================
 void IModel::Initialize(const wstring file)
 {
-	parts_.push_back(make_unique<Object>());
+	parts_.push_back(make_shared<Object>());
 	parts_.back()->LoadModel(file);
 
 	// ライティング無効
