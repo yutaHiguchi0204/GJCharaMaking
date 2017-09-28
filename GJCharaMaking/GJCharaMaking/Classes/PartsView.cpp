@@ -29,16 +29,6 @@ void PartsView::Initialize()
 }
 
 // =================================================
-// @brief	update
-// @param	none
-// @return	none
-// =================================================
-void PartsView::Update()
-{
-
-}
-
-// =================================================
 // @brief	draw
 // @param	none
 // @return	none

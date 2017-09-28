@@ -7,7 +7,7 @@
 #pragma once
 
 // including header
-#include<CommonStates.h>
+#include <CommonStates.h>
 #include <wrl\client.h>
 
 // class
