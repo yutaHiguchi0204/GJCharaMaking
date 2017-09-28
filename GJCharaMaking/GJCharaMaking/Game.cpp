@@ -6,7 +6,9 @@
 #include "Game.h"
 
 #include "Classes\Object.h"
+#include "Classes\DXTKManager.h"
 #include "Classes\SceneManager.h"
+#include "Classes\TextureManager.h"
 
 extern void ExitGame();
 
@@ -39,6 +41,12 @@ void Game::Initialize(HWND window, int width, int height)
     m_timer.SetFixedTimeStep(true);
     m_timer.SetTargetElapsedSeconds(1.0 / 60);
     */
+	DXTKManager& dxtk = DXTKManager::GetInstance();
+	dxtk.Initializer(m_d3dDevice.Get(), m_d3dContext.Get());
+
+	TextureManager& tm = TextureManager::GetInstance();
+	tm.Initializer(m_d3dDevice.Get(), m_d3dContext.Get());
+
 	SceneManager& sm = SceneManager::GetInstance();
 	sm.Initialize(m_d3dDevice, m_d3dContext);
 }
