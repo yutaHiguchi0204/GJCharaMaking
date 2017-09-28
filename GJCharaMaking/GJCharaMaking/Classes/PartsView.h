@@ -15,8 +15,8 @@
 class PartsView : public Resource2D
 {
 private:
-	std::vector<PartsGenrePanel> partsGenrePanel_;			// ジャンルボタン
-	std::vector<PartsPanel> partsPanel_;					// パーツボタン
+	std::vector<PartsGenrePanel*> partsGenrePanel_;			// ジャンルボタン
+	std::vector<PartsPanel*> partsPanel_;					// パーツボタン
 
 public:
 	PartsView() {};
