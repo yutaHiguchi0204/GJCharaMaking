@@ -12,9 +12,14 @@
 // class
 class Player : public Character
 {
+private:
+	float rot = 180.0f;						// 回転角
+
 public:
 	Player() {};
 	~Player() {};
+
+	void Update() override;					// 更新処理
 
 	void LoadModel() override;				// モデルの読み込み
 	void SetParentParts() override;			// パーツの親子関係の構築

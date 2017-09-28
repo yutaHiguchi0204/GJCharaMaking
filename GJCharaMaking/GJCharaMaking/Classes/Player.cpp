@@ -16,6 +16,23 @@ using namespace std;
 // method
 
 // =================================================
+// @brief	update
+// @param	none
+// @return	none
+// =================================================
+void Player::Update()
+{
+	for (auto itr = parts_.begin(); itr != parts_.end(); itr++)
+	{
+		(*itr)->Update();
+	}
+
+	// ローテーションさせる
+	rot += 0.01f;
+	GetRootParts()->SetRotate(Vector3(0, rot, 0));
+}
+
+// =================================================
 // @brief	モデルの読み込み
 // @param	none
 // @return	none
