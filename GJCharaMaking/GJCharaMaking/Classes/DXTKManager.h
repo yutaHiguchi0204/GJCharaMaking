@@ -9,6 +9,7 @@
 #include "SingletonDirector.h"
 
 #include <CommonStates.h>
+#include <SpriteBatch.h>
 
 // ƒNƒ‰ƒX‚Ì’è‹`
 class DXTKManager : public SingletonDirector<DXTKManager>
