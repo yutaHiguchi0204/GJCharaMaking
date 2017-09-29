@@ -49,6 +49,9 @@ void CharaData::ImportData()
 		}
 	}
 
+	// ファイルを閉じる
+	ifs.close();
+
 	// データ登録
 	int partsNum = NONE;
 	for (auto itr = tmp.begin(); itr != tmp.end();)
@@ -69,4 +72,44 @@ void CharaData::ImportData()
 		// パーツデータの登録
 		charaPartsData[partsNum].push_back(data);
 	}
+
+	// 初期データを登録
+	for (int i = 0; i < CHARA_PARTS_NUM; i++)
+	{
+		modelData[i] = charaPartsData[i].at(0).modelFileData;
+	}
+}
+
+// =================================================
+// @brief	パーツジャンルデータの読み込み
+// @param	none
+// @return	none
+// =================================================
+void CharaData::ImportGenreData()
+{
+	// ファイル読み込み
+	ifstream ifs(PARTS_GENRE_DATA_FILE_NAME);
+
+	// エラー処理
+	if (!ifs)
+	{
+		OutputDebugString(L"This csv file is unknown.");
+		assert(0);
+	}
+
+	// データをレコードごとに取得
+	string data;
+	std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> cv;
+	while (getline(ifs, data)) {
+		string token;
+		istringstream stream(data);
+
+		// カンマ区切り
+		while (getline(stream, token, ',')) {
+			partsGenreData.push_back(cv.from_bytes(token));
+		}
+	}
+
+	// ファイルを閉じる
+	ifs.close();
 }

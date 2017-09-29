@@ -38,6 +38,7 @@ void CustomizeScene::Initialize()
 	// パーツデータの読み込み
 	CharaData& data = CharaData::GetInstance();
 	data.ImportData();
+	data.ImportGenreData();
 
 	// 天球モデルの読み込み
 	skyDome_ = make_unique<IModel>();
@@ -50,6 +51,7 @@ void CustomizeScene::Initialize()
 	// パーツビューの読み込み
 	partsView_ = make_unique<PartsView>();
 	partsView_->Initialize(L"customView");
+	partsView_->LoadPanel();
 }
 
 // =================================================
@@ -84,4 +86,5 @@ void CustomizeScene::Draw()
 
 	// パーツビューの描画
 	partsView_->Draw(Vector2(32.0f, 32.0f));
+	partsView_->DrawPanel();
 }
