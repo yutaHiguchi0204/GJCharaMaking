@@ -39,10 +39,12 @@ void Player::Update()
 // =================================================
 void Player::LoadModel()
 {
+	CharaData& data = CharaData::GetInstance();
+
 	// ƒ‚ƒfƒ‹“Çž
-	parts_.at(CharaData::HEAD)->LoadModel(L"Head3");
-	parts_.at(CharaData::BODY)->LoadModel(L"Body2");
-	parts_.at(CharaData::LEG)->LoadModel(L"Leg2");
+	parts_.at(CharaData::HEAD)->LoadModel(data.GetModelData(CharaData::HEAD));
+	parts_.at(CharaData::BODY)->LoadModel(data.GetModelData(CharaData::BODY));
+	parts_.at(CharaData::LEG)->LoadModel(data.GetModelData(CharaData::LEG));
 }
 
 // =================================================
