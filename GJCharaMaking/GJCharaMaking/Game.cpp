@@ -5,9 +5,10 @@
 #include "pch.h"
 #include "Game.h"
 
-#include "Classes\Object.h"
+#include "Classes\CharaData.h"
 #include "Classes\DXTKManager.h"
 #include "Classes\KeyboardDebuger.h"
+#include "Classes\Object.h"
 #include "Classes\SceneManager.h"
 #include "Classes\TextureManager.h"
 
@@ -47,6 +48,11 @@ void Game::Initialize(HWND window, int width, int height)
 
 	TextureManager& tm = TextureManager::GetInstance();
 	tm.Initializer(m_d3dDevice.Get(), m_d3dContext.Get());
+
+	// パーツデータの読み込み
+	CharaData& data = CharaData::GetInstance();
+	data.ImportData();
+	data.ImportGenreData();
 
 	SceneManager& sm = SceneManager::GetInstance();
 	sm.Initialize(m_d3dDevice, m_d3dContext);

@@ -21,6 +21,7 @@ private:
 	std::unique_ptr<IModel> skyDome_;				// 天球
 
 	std::unique_ptr<Player> player_;				// プレイヤー
+	float playerRot_;								// プレイヤーの回転角
 
 	std::unique_ptr<PartsView> partsView_;			// パーツビュー
 

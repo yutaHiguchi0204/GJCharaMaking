@@ -34,13 +34,12 @@ void CustomizeScene::Initialize()
 	// カメラの生成
 	camera_ = make_unique<Camera>(SIZE_WINDOW_WIDTH, SIZE_WINDOW_HEIGHT);
 
+	// カメラの初期化
+	camera_->SetEyePos(Vector3(9.0f, 10.0f, -25.0f));
+	camera_->SetRefPos(Vector3(9.0f, 10.0f, 0.0f));
+
 	// 静的メンバの設定
 	Object::InitializeStatic(device_, context_, camera_.get());
-
-	// パーツデータの読み込み
-	CharaData& data = CharaData::GetInstance();
-	data.ImportData();
-	data.ImportGenreData();
 
 	// 天球モデルの読み込み
 	skyDome_ = make_unique<IModel>();
@@ -49,6 +48,9 @@ void CustomizeScene::Initialize()
 	// プレイヤーの読み込み
 	player_ = make_unique<Player>();
 	player_->Initialize(CharaData::CHARA_PARTS_NUM);
+
+	// プレイヤーの回転角の初期化
+	playerRot_ = 0.0f;
 
 	// パーツビューの読み込み
 	partsView_ = make_unique<PartsView>();
@@ -72,12 +74,17 @@ void CustomizeScene::Update()
 	// プレイヤーの更新
 	player_->Update();
 
+	// プレイヤーをローテーションさせる
+	playerRot_ -= 0.01f;
+	player_->GetRootParts()->SetRotate(Vector3(0, playerRot_, 0));
+
 	// キーボード処理（デバッグ用）
 	KeyboardDebuger& kd = KeyboardDebuger::GetInstance();
 	CharaData& data = CharaData::GetInstance();
 	if (kd.ChangeCharaParts())
 	{
 		player_->ChangeParts(data.GetPartsGenre(), data.GetModelData(data.GetPartsGenre()));
+		playerRot_ = 0.0f;
 	}
 }
 

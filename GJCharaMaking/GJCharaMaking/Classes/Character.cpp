@@ -40,7 +40,7 @@ void Character::Initialize(int partsNum)
 	this->SetOffset();
 
 	// ‰ñ“]Šp‚ÌÝ’è
-	rot = 135.0f;
+	rot = 0.0f;
 	GetRootParts()->SetRotate(Vector3(0, rot, 0));
 }
 

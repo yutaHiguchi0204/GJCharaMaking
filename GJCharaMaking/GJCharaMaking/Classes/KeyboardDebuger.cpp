@@ -11,6 +11,7 @@
 
 // namespace
 using namespace DirectX;
+using namespace std;
 
 // method
 
@@ -78,4 +79,25 @@ bool KeyboardDebuger::ChangeCharaParts()
 	}
 
 	return false;
+}
+
+// =================================================
+// @brief	カメラを動かす（プレイヤー軸）
+// @param	none
+// @return	none
+// =================================================
+void KeyboardDebuger::MoveCamera(shared_ptr<Camera> camera)
+{
+	DXTKManager& dxtk = DXTKManager::GetInstance();
+	Keyboard::State state = dxtk.keyTracker_->pressed;
+
+	// 左右キーでカメラを動かす
+	if (state.Left)
+	{
+		// 後で追加予定
+	}
+	else if (state.Right)
+	{
+		// 後で追加予定
+	}
 }

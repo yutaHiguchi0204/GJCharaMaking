@@ -15,8 +15,6 @@ public:
 	Player() {};
 	~Player() {};
 
-	void Update() override;					// 更新処理
-
 	void LoadModel() override;				// モデルの読み込み
 	void SetParentParts() override;			// パーツの親子関係の構築
 	void SetOffset() override;				// パーツのローカル座標の設定
