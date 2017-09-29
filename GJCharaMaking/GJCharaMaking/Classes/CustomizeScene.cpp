@@ -91,6 +91,6 @@ void CustomizeScene::Draw()
 	player_->Draw();
 
 	// パーツビューの描画
-	partsView_->Draw(Vector2(32.0f, 32.0f));
+	partsView_->Draw();
 	partsView_->DrawPanel();
 }
