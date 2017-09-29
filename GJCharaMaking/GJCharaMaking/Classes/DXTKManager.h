@@ -9,6 +9,7 @@
 #include "SingletonDirector.h"
 
 #include <CommonStates.h>
+#include <Keyboard.h>
 #include <SpriteBatch.h>
 
 // クラスの定義
@@ -24,11 +25,20 @@ public:
 	// スプライトバッチ
 	std::unique_ptr<DirectX::SpriteBatch> spriteBatch_;
 
+	// キーボード関係
+	std::unique_ptr<DirectX::Keyboard> keyboard_;
+	std::unique_ptr<DirectX::Keyboard::KeyboardStateTracker> keyTracker_;
+
 private:
 	friend class SingletonDirector<DXTKManager>;
 
 	// コンストラクタ
-	DXTKManager() {}
+	DXTKManager() 
+	{
+		// キーボード関係の初期化
+		keyboard_ = std::make_unique<DirectX::Keyboard>();
+		keyTracker_ = std::make_unique <DirectX::Keyboard::KeyboardStateTracker>();
+	}
 
 public:
 
@@ -48,5 +58,8 @@ public:
 	// ステートの更新処理
 	void UpdateInputState()
 	{
+		// キー入力情報を取得
+		DirectX::Keyboard::State key = keyboard_->GetState();
+		keyTracker_->Update(key);
 	}
 };

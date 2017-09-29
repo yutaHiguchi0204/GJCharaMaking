@@ -8,6 +8,8 @@
 #include "CustomizeScene.h"
 #include "CharaData.h"
 #include "Constant.h"
+#include "DXTKManager.h"
+#include "KeyboardDebuger.h"
 
 // namespace
 using namespace DirectX;
@@ -69,6 +71,10 @@ void CustomizeScene::Update()
 
 	// プレイヤーの更新
 	player_->Update();
+
+	// キーボード処理（デバッグ用）
+	KeyboardDebuger& kd = KeyboardDebuger::GetInstance();
+	kd.ChangeCharaParts();
 }
 
 // =================================================

@@ -82,6 +82,9 @@
     <ClInclude Include="Classes\PartsPanel.h">
       <Filter>GUI</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\KeyboardDebuger.h">
+      <Filter>Master</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -125,6 +128,9 @@
     </ClCompile>
     <ClCompile Include="Classes\PartsView.cpp">
       <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\KeyboardDebuger.cpp">
+      <Filter>Master</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
