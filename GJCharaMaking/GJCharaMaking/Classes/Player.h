@@ -19,4 +19,3 @@ public:
 	void SetParentParts() override;			// パーツの親子関係の構築
 	void SetOffset() override;				// パーツのローカル座標の設定
 };
-

@@ -86,7 +86,7 @@ bool KeyboardDebuger::ChangeCharaParts()
 // @param	none
 // @return	none
 // =================================================
-void KeyboardDebuger::MoveCamera(shared_ptr<Camera> camera)
+void KeyboardDebuger::MoveCamera(const shared_ptr<Camera>& camera)
 {
 	DXTKManager& dxtk = DXTKManager::GetInstance();
 	Keyboard::State state = dxtk.keyTracker_->pressed;

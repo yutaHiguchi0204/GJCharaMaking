@@ -62,11 +62,11 @@ public:
 
 	void SetParent(Object* obj)											{ pParent_ = obj; };										// 親の３Ｄオブジェクトを設定
 
-	const DirectX::SimpleMath::Vector3 GetScale()						{ return scale_; };											// スケーリングを取得
-	const DirectX::SimpleMath::Vector3 GetRotate()						{ return rotate_; };										// 回転角を取得
-	const DirectX::SimpleMath::Vector3 GetTranslate()					{ return translate_; };										// 平行移動の取得
+	inline const DirectX::SimpleMath::Vector3& GetScale()				{ return scale_; };											// スケーリングを取得
+	inline const DirectX::SimpleMath::Vector3& GetRotate()				{ return rotate_; };										// 回転角を取得
+	inline const DirectX::SimpleMath::Vector3& GetTranslate()			{ return translate_; };										// 平行移動の取得
 
-	const DirectX::SimpleMath::Matrix GetWorldMatrix()					{ return world_; };											// ワールド行列の取得
+	inline const DirectX::SimpleMath::Matrix& GetWorldMatrix()			{ return world_; };											// ワールド行列の取得
 
 	Object* GetParent()													{ return pParent_; };										// 親の３Ｄオブジェクトの取得
 

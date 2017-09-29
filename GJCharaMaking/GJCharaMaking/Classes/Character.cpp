@@ -49,7 +49,7 @@ void Character::Initialize(int partsNum)
 // @param	パーツジャンル（CHARA_PARTS）、パーツデータ（PartsData）
 // @return	none
 // =================================================
-void Character::ChangeParts(CharaData::CHARA_PARTS charaParts, CharaData::PartsData partsData)
+void Character::ChangeParts(CharaData::CHARA_PARTS charaParts, const CharaData::PartsData& partsData)
 {
 	// パーツの更新
 	CharaData& data = CharaData::GetInstance();

@@ -23,9 +23,9 @@ public:
 	Resource2D() {};
 	virtual ~Resource2D() {};
 
-	void Initialize(const std::wstring file);								// 初期化
-	void Draw();															// 描画
+	void Initialize(const std::wstring file);									// 初期化
+	void Draw();																// 描画
 
-	void SetPos(const DirectX::SimpleMath::Vector2 pos) { pos_ = pos; }		// 座標設定
-	DirectX::SimpleMath::Vector2 GetPos() { return pos_; }					// 座標取得
+	void SetPos(const DirectX::SimpleMath::Vector2& pos) { pos_ = pos; }		// 座標設定
+	inline const DirectX::SimpleMath::Vector2& GetPos() { return pos_; }		// 座標取得
 };

@@ -20,7 +20,7 @@ private:
 	KeyboardDebuger() {};
 
 public:
-	void Update();											// キーボード情報の更新
-	bool ChangeCharaParts();								// パーツ変更
-	void MoveCamera(std::shared_ptr<Camera> camera);		// カメラを動かす（プレイヤー軸）
+	void Update();												// キーボード情報の更新
+	bool ChangeCharaParts();									// パーツ変更
+	void MoveCamera(const std::shared_ptr<Camera>& camera);		// カメラを動かす（プレイヤー軸）
 };
