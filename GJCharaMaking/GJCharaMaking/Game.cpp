@@ -7,6 +7,7 @@
 
 #include "Classes\Object.h"
 #include "Classes\DXTKManager.h"
+#include "Classes\KeyboardDebuger.h"
 #include "Classes\SceneManager.h"
 #include "Classes\TextureManager.h"
 
@@ -70,6 +71,9 @@ void Game::Update(DX::StepTimer const& timer)
     // TODO: Add your game logic here.
 	SceneManager& sm = SceneManager::GetInstance();
 	sm.Update();
+
+	KeyboardDebuger& kd = KeyboardDebuger::GetInstance();
+	kd.Update();
 
     elapsedTime;
 }
