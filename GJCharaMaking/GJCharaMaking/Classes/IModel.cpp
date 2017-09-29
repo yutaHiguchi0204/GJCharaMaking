@@ -33,9 +33,9 @@ void IModel::Initialize(const wstring file)
 ===============================================================*/
 void IModel::Update()
 {
-	for (auto itr = parts_.begin(); itr != parts_.end(); itr++)
+	for (auto parts : parts_)
 	{
-		(*itr)->Update();
+		parts->Update();
 	}
 }
 
@@ -46,8 +46,8 @@ void IModel::Update()
 ===============================================================*/
 void IModel::Draw()
 {
-	for (auto itr = parts_.begin(); itr != parts_.end(); itr++)
+	for (auto parts : parts_)
 	{
-		(*itr)->Draw();
+		parts->Draw();
 	}
 }

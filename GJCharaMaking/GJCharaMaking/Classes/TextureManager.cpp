@@ -24,8 +24,8 @@ using namespace std;
 ===================================================================== */
 void TextureManager::Initializer(ID3D11Device* device, ID3D11DeviceContext* context)
 {
-	m_device = device;
-	m_context = context;
+	device_ = device;
+	context_ = context;
 
 	// ブレンドステートの設定
 	SetBlendState();
@@ -40,7 +40,7 @@ void TextureManager::Load(wstring file, ID3D11ShaderResourceView** texture)
 {
 	const wstring fileName = L"Resources/Texture2D/" + file + L".png";
 
-	CreateWICTextureFromFile(m_device, fileName.c_str(), nullptr, texture);
+	CreateWICTextureFromFile(device_, fileName.c_str(), nullptr, texture);
 }
 
 /* =====================================================================
@@ -63,11 +63,11 @@ void TextureManager::SetBlendState()
 	bd.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
 	bd.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
 	
-	m_device->CreateBlendState(&bd, &m_blendState);
+	device_->CreateBlendState(&bd, &blendState_);
 
 	float blendFactor[4] = { D3D11_BLEND_ZERO, D3D11_BLEND_ZERO, D3D11_BLEND_ZERO, D3D11_BLEND_ZERO };
 	UINT mask = 0xffffffff;
-	m_context->OMSetBlendState(m_blendState, blendFactor, mask);
+	context_->OMSetBlendState(blendState_, blendFactor, mask);
 }
 
 /* =====================================================================
@@ -79,9 +79,9 @@ void TextureManager::Draw(ID3D11ShaderResourceView* texture, Vector2 pos, float 
 {
 	DXTKManager& dxtk = DXTKManager::GetInstance();
 
-	dxtk.m_spriteBatch->Begin(SpriteSortMode_Deferred, m_blendState);
-	dxtk.m_spriteBatch->Draw(texture, pos, nullptr, Colors::White, angle, Vector2(textureSize.x / 2, textureSize.y / 2), 1.0f, flip);
-	dxtk.m_spriteBatch->End();
+	dxtk.spriteBatch_->Begin(SpriteSortMode_Deferred, blendState_);
+	dxtk.spriteBatch_->Draw(texture, pos, nullptr, Colors::White, angle, Vector2(textureSize.x / 2, textureSize.y / 2), 1.0f, flip);
+	dxtk.spriteBatch_->End();
 }
 
 /* =====================================================================
@@ -98,7 +98,7 @@ void TextureManager::Draw(ID3D11ShaderResourceView* texture, Vector2 pos, Vector
 	int top = rectPos.y, bottom = rectPos.y + rectSize.y;
 	RECT rect = RECT{ left, top, right, bottom };
 
-	dxtk.m_spriteBatch->Begin(SpriteSortMode_Deferred, m_blendState);
-	dxtk.m_spriteBatch->Draw(texture, pos, &rect, Colors::White, angle, Vector2(textureSize.x / 2, textureSize.y / 2), 1.0f, flip);
-	dxtk.m_spriteBatch->End();
+	dxtk.spriteBatch_->Begin(SpriteSortMode_Deferred, blendState_);
+	dxtk.spriteBatch_->Draw(texture, pos, &rect, Colors::White, angle, Vector2(textureSize.x / 2, textureSize.y / 2), 1.0f, flip);
+	dxtk.spriteBatch_->End();
 }

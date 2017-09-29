@@ -29,11 +29,11 @@ void PartsView::LoadPanel()
 
 	// パーツジャンル
 	vector<wstring> partsGenreData = data.GetPartsGenreData();
-	for (auto itr = partsGenreData.begin(); itr != partsGenreData.end(); itr++)
+	for (auto tmpData : partsGenreData)
 	{
 		partsGenrePanel_.push_back(new PartsGenrePanel);
 
-		wstring wstr = L"partsBanner" + (*itr);
+		wstring wstr = L"partsBanner" + (tmpData);
 		partsGenrePanel_.back()->Initialize(wstr);
 	}
 
@@ -41,11 +41,11 @@ void PartsView::LoadPanel()
 	for (int i = 0; i < CharaData::CHARA_PARTS_NUM; i++)
 	{
 		vector<CharaData::PartsData> partsData = data.GetPartsData((CharaData::CHARA_PARTS)i);
-		for (auto itr = partsData.begin(); itr != partsData.end(); itr++)
+		for (auto tmpData : partsData)
 		{
 			partsPanel_[i].push_back(new PartsPanel);
 
-			wstring wstr = (*itr).modelFileData + L"UI";
+			wstring wstr = tmpData.modelFileData + L"UI";
 			partsPanel_[i].back()->Initialize(wstr);
 		}
 	}
