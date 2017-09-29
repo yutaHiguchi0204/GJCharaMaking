@@ -22,9 +22,9 @@ using namespace std;
 // =================================================
 void Player::Update()
 {
-	for (auto itr = parts_.begin(); itr != parts_.end(); itr++)
+	for (auto parts : parts_)
 	{
-		(*itr)->Update();
+		parts->Update();
 	}
 
 	// ローテーションさせる

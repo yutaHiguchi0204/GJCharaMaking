@@ -19,15 +19,15 @@
 class TextureManager : public SingletonDirector<TextureManager>
 {
 public:
-	ID3D11Device* m_device;
-	ID3D11DeviceContext* m_context;
-	ID3D11BlendState* m_blendState;
+	ID3D11Device* device_;
+	ID3D11DeviceContext* context_;
+	ID3D11BlendState* blendState_;
 
 private:
 	friend class SingletonDirector<TextureManager>;
 
 	// コンストラクタ
-	TextureManager() { m_blendState = NULL; };
+	TextureManager() { blendState_ = NULL; };
 
 public:
 

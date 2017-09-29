@@ -15,14 +15,14 @@
 class DXTKManager : public SingletonDirector<DXTKManager>
 {
 public:
-	ID3D11Device* m_device;
-	ID3D11DeviceContext* m_context;
+	ID3D11Device* device_;
+	ID3D11DeviceContext* context_;
 
 	// コモンステート
-	std::unique_ptr<DirectX::CommonStates> m_states;
+	std::unique_ptr<DirectX::CommonStates> states_;
 
 	// スプライトバッチ
-	std::unique_ptr<DirectX::SpriteBatch> m_spriteBatch;
+	std::unique_ptr<DirectX::SpriteBatch> spriteBatch_;
 
 private:
 	friend class SingletonDirector<DXTKManager>;
@@ -35,14 +35,14 @@ public:
 	// 初期化処理
 	void Initializer(ID3D11Device* device, ID3D11DeviceContext* context)
 	{
-		m_device = device;
-		m_context = context;
+		device_ = device;
+		context_ = context;
 
 		// コモンステートを作成
-		m_states = std::make_unique<DirectX::CommonStates>(device);
+		states_ = std::make_unique<DirectX::CommonStates>(device);
 
 		// スプライトバッチ
-		m_spriteBatch = std::make_unique<DirectX::SpriteBatch>(context);
+		spriteBatch_ = std::make_unique<DirectX::SpriteBatch>(context);
 	}
 
 	// ステートの更新処理
