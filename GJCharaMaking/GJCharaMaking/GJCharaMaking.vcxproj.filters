@@ -82,7 +82,7 @@
     <ClInclude Include="Classes\PartsPanel.h">
       <Filter>GUI</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\HitJudgment.h">
+    <ClInclude Include="Classes\KeyboardDebuger.h">
       <Filter>Master</Filter>
     </ClInclude>
   </ItemGroup>
@@ -129,7 +129,7 @@
     <ClCompile Include="Classes\PartsView.cpp">
       <Filter>GUI</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\HitJudgment.cpp">
+    <ClCompile Include="Classes\KeyboardDebuger.cpp">
       <Filter>Master</Filter>
     </ClCompile>
   </ItemGroup>

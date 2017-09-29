@@ -9,6 +9,10 @@
 #include "CharaData.h"
 #include "Constant.h"
 #include "DXTKManager.h"
+#include "KeyboardDebuger.h"
+#include "MouseDetection.h"
+#include "PartsPanel.h"
+#include <vector>
 
 // namespace
 using namespace DirectX;
@@ -73,7 +77,16 @@ void CustomizeScene::Update()
 
 	//マウス処理
 	DXTKManager& dxtk = DXTKManager::GetInstance();
-	//if(dxtk.mouse_->GetState().x)
+	MouseDetection& md = MouseDetection::GetInstance();
+
+	if (dxtk.mouseTracker_->leftButton == Mouse::ButtonStateTracker::ButtonState::PRESSED)
+	{
+		md.DetectionPartsView(Vector2(dxtk.mouseTracker_->GetLastState().x,dxtk.mouseTracker_->GetLastState().y));
+	}
+
+	// キーボード処理（デバッグ用）
+	KeyboardDebuger& kd = KeyboardDebuger::GetInstance();
+	kd.ChangeCharaParts();
 
 }
 
@@ -91,6 +104,6 @@ void CustomizeScene::Draw()
 	player_->Draw();
 
 	// パーツビューの描画
-	partsView_->Draw(Vector2(32.0f, 32.0f));
+	partsView_->Draw();
 	partsView_->DrawPanel();
 }
