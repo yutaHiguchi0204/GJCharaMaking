@@ -28,9 +28,9 @@ void KeyboardDebuger::Update()
 // =================================================
 // @brief	パーツ変更
 // @param	none
-// @return	none
+// @return	パーツの変更をしたかどうか（bool）　※ジャンル変更はtrueにならない
 // =================================================
-void KeyboardDebuger::ChangeCharaParts()
+bool KeyboardDebuger::ChangeCharaParts()
 {
 	DXTKManager& dxtk = DXTKManager::GetInstance();
 	Keyboard::State state = dxtk.keyTracker_->pressed;
@@ -39,27 +39,43 @@ void KeyboardDebuger::ChangeCharaParts()
 	// 上下キーでジャンル選択
 	if (state.Up)
 	{
-		data.SetPartsGenre((CharaData::CHARA_PARTS)(data.GetPartsGenre() - 1));
-		if (data.GetPartsGenre() < CharaData::HEAD)
-		{
-			data.SetPartsGenre((CharaData::CHARA_PARTS)(CharaData::CHARA_PARTS_NUM - 1));
-		}
+		data.SetPartsGenre(
+			(data.GetPartsGenre() - 1 < CharaData::HEAD)
+			? (CharaData::CHARA_PARTS)(CharaData::CHARA_PARTS_NUM - 1)
+			: (CharaData::CHARA_PARTS)(data.GetPartsGenre() - 1)
+		);
 	}
 	else if (state.Down)
 	{
-		data.SetPartsGenre((CharaData::CHARA_PARTS)(data.GetPartsGenre() + 1));
-		if (data.GetPartsGenre() >= CharaData::CHARA_PARTS_NUM)
-		{
-			data.SetPartsGenre((CharaData::CHARA_PARTS)CharaData::HEAD);
-		}
+		data.SetPartsGenre(
+			(data.GetPartsGenre() + 1 >= CharaData::CHARA_PARTS_NUM)
+			? CharaData::HEAD
+			: (CharaData::CHARA_PARTS)(data.GetPartsGenre() + 1)
+		);
 	}
 	// 左右キーでパーツ選択
 	else if (state.Left)
 	{
-		
+		data.SetModelData(
+			data.GetPartsGenre(),
+			(data.GetModelData(data.GetPartsGenre()).partsNo - 1 <= 0)
+			? (data.GetPartsData(data.GetPartsGenre()).at(data.GetPartsCount(data.GetPartsGenre()) - 1))
+			: (data.GetPartsData(data.GetPartsGenre()).at(data.GetModelData(data.GetPartsGenre()).partsNo - 2))
+		);
+
+		return true;
 	}
 	else if (state.Right)
 	{
+		data.SetModelData(
+			data.GetPartsGenre(),
+			(data.GetModelData(data.GetPartsGenre()).partsNo + 1 > data.GetPartsCount(data.GetPartsGenre()))
+			? (data.GetPartsData(data.GetPartsGenre()).at(0))
+			: (data.GetPartsData(data.GetPartsGenre()).at(data.GetModelData(data.GetPartsGenre()).partsNo))
+		);
 
+		return true;
 	}
+
+	return false;
 }

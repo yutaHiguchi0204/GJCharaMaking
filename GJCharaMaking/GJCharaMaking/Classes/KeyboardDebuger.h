@@ -19,5 +19,5 @@ private:
 
 public:
 	void Update();						// キーボード情報の更新
-	void ChangeCharaParts();			// パーツ変更
+	bool ChangeCharaParts();			// パーツ変更
 };

@@ -6,7 +6,6 @@
 
 // including header
 #include "Player.h"
-#include "CharaData.h"
 
 // namespace
 using namespace DirectX;
@@ -42,9 +41,9 @@ void Player::LoadModel()
 	CharaData& data = CharaData::GetInstance();
 
 	// ƒ‚ƒfƒ‹“Çž
-	parts_.at(CharaData::HEAD)->LoadModel(data.GetModelData(CharaData::HEAD));
-	parts_.at(CharaData::BODY)->LoadModel(data.GetModelData(CharaData::BODY));
-	parts_.at(CharaData::LEG)->LoadModel(data.GetModelData(CharaData::LEG));
+	parts_.at(CharaData::HEAD)->LoadModel(data.GetModelData(CharaData::HEAD).modelFileData);
+	parts_.at(CharaData::BODY)->LoadModel(data.GetModelData(CharaData::BODY).modelFileData);
+	parts_.at(CharaData::LEG)->LoadModel(data.GetModelData(CharaData::LEG).modelFileData);
 }
 
 // =================================================

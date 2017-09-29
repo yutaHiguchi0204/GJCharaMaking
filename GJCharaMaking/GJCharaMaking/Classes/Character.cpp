@@ -8,6 +8,8 @@
 #include "Character.h"
 
 // namespace
+using namespace DirectX;
+using namespace DirectX::SimpleMath;
 using namespace std;
 
 // method
@@ -36,4 +38,24 @@ void Character::Initialize(int partsNum)
 
 	// パーツのローカル座標の設定
 	this->SetOffset();
+
+	// 回転角の設定
+	rot = 135.0f;
+	GetRootParts()->SetRotate(Vector3(0, rot, 0));
+}
+
+// =================================================
+// @brief	パーツの変更
+// @param	パーツジャンル（CHARA_PARTS）、パーツデータ（PartsData）
+// @return	none
+// =================================================
+void Character::ChangeParts(CharaData::CHARA_PARTS charaParts, CharaData::PartsData partsData)
+{
+	// パーツの更新
+	CharaData& data = CharaData::GetInstance();
+	data.SetModelData(charaParts, partsData);
+
+	// モデルを一旦破棄し、新しく出す
+	parts_.clear();
+	Initialize(CharaData::CHARA_PARTS_NUM);
 }

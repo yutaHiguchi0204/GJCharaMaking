@@ -74,7 +74,11 @@ void CustomizeScene::Update()
 
 	// キーボード処理（デバッグ用）
 	KeyboardDebuger& kd = KeyboardDebuger::GetInstance();
-	kd.ChangeCharaParts();
+	CharaData& data = CharaData::GetInstance();
+	if (kd.ChangeCharaParts())
+	{
+		player_->ChangeParts(data.GetPartsGenre(), data.GetModelData(data.GetPartsGenre()));
+	}
 }
 
 // =================================================

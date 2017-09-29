@@ -11,9 +11,6 @@
 // class
 class Player : public Character
 {
-private:
-	float rot = 180.0f;						// ‰ñ“]Šp
-
 public:
 	Player() {};
 	~Player() {};
