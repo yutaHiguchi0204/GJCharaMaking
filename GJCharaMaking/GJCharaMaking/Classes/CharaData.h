@@ -48,11 +48,14 @@ private:
 	// パーツジャンルデータ
 	std::vector<std::wstring> partsGenreData_;
 
+	// パーツ数
+	int partsCount_[CHARA_PARTS_NUM];
+
 	// 現在のパーツジャンル
 	CHARA_PARTS charaParts_;
 
 	// 現在のパーツデータ
-	std::wstring modelData_[CHARA_PARTS_NUM];
+	PartsData modelData_[CHARA_PARTS_NUM];
 
 private:
 	friend class SingletonDirector<CharaData>;
@@ -66,14 +69,17 @@ public:
 	void ImportGenreData();
 
 	// 全パーツデータの取得
-	std::vector<PartsData> GetPartsData(CHARA_PARTS parts) { return charaPartsData_[parts]; }
-	std::vector<std::wstring> GetPartsGenreData() { return partsGenreData_; }
+	inline std::vector<PartsData> GetPartsData(CHARA_PARTS parts) const { return charaPartsData_[parts]; }
+	inline std::vector<std::wstring> GetPartsGenreData() const { return partsGenreData_; }
+
+	// パーツ数の取得
+	inline int GetPartsCount(CHARA_PARTS charaParts) const { return partsCount_[charaParts]; }
 
 	// 現在のパーツジャンル
 	void SetPartsGenre(CHARA_PARTS charaParts) { charaParts_ = charaParts; }
-	CHARA_PARTS GetPartsGenre() { return charaParts_; }
+	inline CHARA_PARTS GetPartsGenre() const { return charaParts_; }
 
 	// 現在のモデルデータ
-	void SetModelData(CHARA_PARTS charaParts, std::wstring file) { modelData_[charaParts] = file; }
-	std::wstring GetModelData(CHARA_PARTS charaParts) { return modelData_[charaParts]; }
+	void SetModelData(const CHARA_PARTS charaParts, const PartsData& data) { modelData_[charaParts] = data; }
+	inline const PartsData& GetModelData(CHARA_PARTS charaParts) const { return modelData_[charaParts]; }
 };

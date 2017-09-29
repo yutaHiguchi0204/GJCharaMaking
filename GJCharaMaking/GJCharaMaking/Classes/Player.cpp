@@ -6,7 +6,6 @@
 
 // including header
 #include "Player.h"
-#include "CharaData.h"
 
 // namespace
 using namespace DirectX;
@@ -14,23 +13,6 @@ using namespace DirectX::SimpleMath;
 using namespace std;
 
 // method
-
-// =================================================
-// @brief	update
-// @param	none
-// @return	none
-// =================================================
-void Player::Update()
-{
-	for (auto parts : parts_)
-	{
-		parts->Update();
-	}
-
-	// ローテーションさせる
-	rot -= 0.01f;
-	GetRootParts()->SetRotate(Vector3(0, rot, 0));
-}
 
 // =================================================
 // @brief	モデルの読み込み
@@ -42,9 +24,9 @@ void Player::LoadModel()
 	CharaData& data = CharaData::GetInstance();
 
 	// モデル読込
-	parts_.at(CharaData::HEAD)->LoadModel(data.GetModelData(CharaData::HEAD));
-	parts_.at(CharaData::BODY)->LoadModel(data.GetModelData(CharaData::BODY));
-	parts_.at(CharaData::LEG)->LoadModel(data.GetModelData(CharaData::LEG));
+	parts_.at(CharaData::HEAD)->LoadModel(data.GetModelData(CharaData::HEAD).modelFileData);
+	parts_.at(CharaData::BODY)->LoadModel(data.GetModelData(CharaData::BODY).modelFileData);
+	parts_.at(CharaData::LEG)->LoadModel(data.GetModelData(CharaData::LEG).modelFileData);
 }
 
 // =================================================

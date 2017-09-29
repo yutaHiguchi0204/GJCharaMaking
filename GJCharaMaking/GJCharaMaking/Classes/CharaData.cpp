@@ -70,12 +70,13 @@ void CharaData::ImportData()
 
 		// パーツデータの登録
 		charaPartsData_[partsNum].push_back(data);
+		partsCount_[partsNum]++;
 	}
 
 	// 初期データを登録
 	for (int i = 0; i < CHARA_PARTS_NUM; i++)
 	{
-		modelData_[i] = charaPartsData_[i].at(0).modelFileData;
+		modelData_[i] = charaPartsData_[i].at(0);
 	}
 	charaParts_ = HEAD;
 }

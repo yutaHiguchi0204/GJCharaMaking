@@ -18,8 +18,8 @@ using namespace std;
 Camera::Camera(int width, int height)
 {
 	// ƒrƒ…[s—ñŠÖŒW‚Ì‰Šúİ’è
-	eyePos_ = Vector3(9.0f, 10.0f, -25.0f);
-	refPos_ = Vector3(9.0f, 10.0f, 0.0f);
+	eyePos_ = Vector3(0.0f, 0.0f, 5.0f);
+	refPos_ = Vector3(0.0f, 0.0f, 0.0f);
 	upVec_ = Vector3(0.0f, 1.0f, 0.0f);
 	view_ = GetViewMatrix();
 

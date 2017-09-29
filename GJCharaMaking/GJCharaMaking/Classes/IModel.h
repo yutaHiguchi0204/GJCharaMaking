@@ -25,5 +25,5 @@ public:
 	virtual void Update();									// update
 	virtual void Draw();									// draw
 
-	std::shared_ptr<Object> GetRootParts() { return parts_.back(); }
+	inline const std::shared_ptr<Object>& GetRootParts() { return parts_.back(); }
 };
