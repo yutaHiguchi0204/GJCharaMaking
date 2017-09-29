@@ -67,17 +67,17 @@ void CharaData::ImportData()
 		// モデル、パーツそれぞれのファイル名を設定
 		data.partsNo = stoi(*(itr++));
 		data.modelFileData = (*(itr++));
-		data.panelFileData = (*(itr++));
 
 		// パーツデータの登録
-		charaPartsData[partsNum].push_back(data);
+		charaPartsData_[partsNum].push_back(data);
 	}
 
 	// 初期データを登録
 	for (int i = 0; i < CHARA_PARTS_NUM; i++)
 	{
-		modelData[i] = charaPartsData[i].at(0).modelFileData;
+		modelData_[i] = charaPartsData_[i].at(0).modelFileData;
 	}
+	charaParts_ = HEAD;
 }
 
 // =================================================
@@ -106,7 +106,7 @@ void CharaData::ImportGenreData()
 
 		// カンマ区切り
 		while (getline(stream, token, ',')) {
-			partsGenreData.push_back(cv.from_bytes(token));
+			partsGenreData_.push_back(cv.from_bytes(token));
 		}
 	}
 
