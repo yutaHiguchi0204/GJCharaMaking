@@ -28,7 +28,6 @@ public:
 	{
 		int partsNo;						// パーツ番号
 		std::wstring modelFileData;			// パーツモデルのファイル名
-		std::wstring panelFileData;			// パネルのファイル名
 	};
 
 private:
@@ -36,8 +35,7 @@ private:
 	{
 		NONE = -1,
 		PARTS_NO,
-		MODEL_DATA,
-		PANEL_DATA
+		MODEL_DATA
 	};
 
 	// ファイル名
@@ -45,13 +43,16 @@ private:
 	const std::wstring PARTS_GENRE_DATA_FILE_NAME = L"Resources/CharaData/partsGenreData.csv";
 
 	// キャラパーツデータ
-	std::vector<PartsData> charaPartsData[CHARA_PARTS_NUM];
+	std::vector<PartsData> charaPartsData_[CHARA_PARTS_NUM];
 
 	// パーツジャンルデータ
-	std::vector<std::wstring> partsGenreData;
+	std::vector<std::wstring> partsGenreData_;
+
+	// 現在のパーツジャンル
+	CHARA_PARTS charaParts_;
 
 	// 現在のパーツデータ
-	std::wstring modelData[CHARA_PARTS_NUM];
+	std::wstring modelData_[CHARA_PARTS_NUM];
 
 private:
 	friend class SingletonDirector<CharaData>;
@@ -65,10 +66,14 @@ public:
 	void ImportGenreData();
 
 	// 全パーツデータの取得
-	std::vector<PartsData>* GetPartsData() { return charaPartsData; }
-	std::vector<std::wstring> GetPartsGenreData() { return partsGenreData; }
+	std::vector<PartsData> GetPartsData(CHARA_PARTS parts) { return charaPartsData_[parts]; }
+	std::vector<std::wstring> GetPartsGenreData() { return partsGenreData_; }
+
+	// 現在のパーツジャンル
+	void SetPartsGenre(CHARA_PARTS charaParts) { charaParts_ = charaParts; }
+	CHARA_PARTS GetPartsGenre() { return charaParts_; }
 
 	// 現在のモデルデータ
-	void SetModelData(CHARA_PARTS charaParts, std::wstring file) { modelData[charaParts] = file; }
-	std::wstring GetModelData(CHARA_PARTS charaParts) { return modelData[charaParts]; }
+	void SetModelData(CHARA_PARTS charaParts, std::wstring file) { modelData_[charaParts] = file; }
+	std::wstring GetModelData(CHARA_PARTS charaParts) { return modelData_[charaParts]; }
 };

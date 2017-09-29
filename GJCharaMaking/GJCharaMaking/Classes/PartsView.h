@@ -8,6 +8,7 @@
 // including header
 #include "Resource2D.h"
 #include <vector>
+#include "CharaData.h"
 #include "PartsGenrePanel.h"
 #include "PartsPanel.h"
 
@@ -15,8 +16,8 @@
 class PartsView : public Resource2D
 {
 private:
-	std::vector<PartsGenrePanel*> partsGenrePanel_;			// ジャンルボタン
-	std::vector<PartsPanel*> partsPanel_;					// パーツボタン
+	std::vector<PartsGenrePanel*> partsGenrePanel_;								// ジャンルボタン
+	std::vector<PartsPanel*> partsPanel_[CharaData::CHARA_PARTS_NUM];			// パーツボタン
 
 public:
 	PartsView() {};
