@@ -37,6 +37,12 @@ void PartsView::LoadPanel()
 		partsGenrePanel_.back()->Initialize(wstr);
 	}
 
+	// パーツジャンルの位置設定
+	for (auto itr = partsGenrePanel_.begin(); itr != partsGenrePanel_.end(); itr++)
+	{
+		(*itr)->SetPos(SET_PARTS_GENRE_PANEL(itr - partsGenrePanel_.begin()));
+	}
+
 	// パーツボタン
 	for (int i = 0; i < CharaData::CHARA_PARTS_NUM; i++)
 	{
@@ -47,6 +53,12 @@ void PartsView::LoadPanel()
 
 			wstring wstr = tmpData.modelFileData + L"UI";
 			partsPanel_[i].back()->Initialize(wstr);
+		}
+
+		// 位置設定
+		for (auto itr = partsPanel_[i].begin(); itr != partsPanel_[i].end(); itr++)
+		{
+			(*itr)->SetPos(SET_PARTS_PANEL(itr - partsPanel_[i].begin()));
 		}
 	}
 }
@@ -59,9 +71,9 @@ void PartsView::LoadPanel()
 void PartsView::DrawPanel()
 {
 	// パーツジャンル
-	for (auto itr = partsGenrePanel_.begin(); itr != partsGenrePanel_.end(); itr++)
+	for (auto parts : partsGenrePanel_)
 	{
-		(*itr)->Draw(SET_PARTS_GENRE_PANEL(itr - partsGenrePanel_.begin()));
+		parts->Draw();
 	}
 
 	// 現在選択しているジャンル
@@ -69,8 +81,8 @@ void PartsView::DrawPanel()
 	CharaData::CHARA_PARTS partsGenre = data.GetPartsGenre();
 
 	// パーツボタン
-	for (auto itr = partsPanel_[partsGenre].begin(); itr != partsPanel_[partsGenre].end(); itr++)
+	for (auto parts : partsPanel_[partsGenre])
 	{
-		(*itr)->Draw(SET_PARTS_PANEL(itr - partsPanel_[partsGenre].begin()));
+		parts->Draw();
 	}
 }

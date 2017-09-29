@@ -15,13 +15,17 @@
 // class
 class Resource2D
 {
-private:
+protected:
 	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> texture_;
+	DirectX::SimpleMath::Vector2 pos_;
 
 public:
 	Resource2D() {};
 	virtual ~Resource2D() {};
 
-	void Initialize(const std::wstring file);				// ‰Šú‰»
-	void Draw(const DirectX::SimpleMath::Vector2 pos);		// •`‰æ
+	void Initialize(const std::wstring file);								// ‰Šú‰»
+	void Draw();															// •`‰æ
+
+	void SetPos(const DirectX::SimpleMath::Vector2 pos) { pos_ = pos; }		// À•Wİ’è
+	DirectX::SimpleMath::Vector2 GetPos() { return pos_; }					// À•Wæ“¾
 };

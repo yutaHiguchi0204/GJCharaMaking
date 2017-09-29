@@ -29,12 +29,12 @@ void Resource2D::Initialize(const wstring file)
 
 // =================================================
 // @brief	draw
-// @param	座標（Vector2）
+// @param	none
 // @return	none
 // =================================================
-void Resource2D::Draw(const Vector2 pos)
+void Resource2D::Draw()
 {
 	// パーツビューの描画
 	TextureManager& tm = TextureManager::GetInstance();
-	tm.Draw(texture_.Get(), pos);
+	tm.Draw(texture_.Get(), pos_);
 }
