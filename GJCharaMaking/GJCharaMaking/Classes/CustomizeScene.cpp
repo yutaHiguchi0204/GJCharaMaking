@@ -8,6 +8,7 @@
 #include "CustomizeScene.h"
 #include "CharaData.h"
 #include "Constant.h"
+#include "DXTKManager.h"
 
 // namespace
 using namespace DirectX;
@@ -69,6 +70,11 @@ void CustomizeScene::Update()
 
 	// プレイヤーの更新
 	player_->Update();
+
+	//マウス処理
+	DXTKManager& dxtk = DXTKManager::GetInstance();
+	//if(dxtk.mouse_->GetState().x)
+
 }
 
 // =================================================
