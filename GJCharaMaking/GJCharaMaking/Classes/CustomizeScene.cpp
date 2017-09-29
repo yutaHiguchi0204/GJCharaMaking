@@ -7,6 +7,7 @@
 // including header
 #include "CustomizeScene.h"
 #include "CharaData.h"
+#include "CollisionManager.h"
 #include "Constant.h"
 #include "DXTKManager.h"
 #include "KeyboardDebuger.h"
@@ -104,4 +105,44 @@ void CustomizeScene::Draw()
 	// パーツビューの描画
 	partsView_->Draw();
 	partsView_->DrawPanel();
+}
+
+// =================================================
+// @brief	当たり判定チェック
+// @param	none
+// @return	none
+// =================================================
+void CustomizeScene::CheckCollision()
+{
+	// マウス準備
+	DXTKManager& dxtk = DXTKManager::GetInstance();
+	// Mouse::State state = dxtk.mouseTracker_->GetLaseState();
+
+	// 左クリックされたら
+	// if (state.leftbutton)
+	{
+		// 当たり判定用ライブラリの生成
+		CollisionManager& collision = CollisionManager::GetInstance();
+
+		// パーツジャンル
+		auto partsGenre = partsView_->GetPartsGenrePanel();
+		for (auto parts : partsGenre)
+		{
+			// if (collision.IsPointerHit(Vector2(state.x, state.y), parts->GetPos()))
+			{
+				// ジャンルパネルを押したときの処理
+			}
+		}
+
+		// パーツパネル
+		CharaData& data = CharaData::GetInstance();
+		auto partsPanel = partsView_->GetPartsPanel(data.GetPartsGenre());
+		for (auto parts : partsPanel)
+		{
+			// if (collision.IsPointerHit(Vector2(state.x, state.y), parts->GetPos()))
+			{
+				// パーツパネルを押したときの処理
+			}
+		}
+	}
 }

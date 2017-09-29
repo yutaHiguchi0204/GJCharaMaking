@@ -28,4 +28,8 @@ public:
 
 	void LoadPanel();			// 全パネルをロード
 	void DrawPanel();			// 全パネルを描画
+
+	// パーツ情報取得
+	inline const std::vector<PartsGenrePanel*>& GetPartsGenrePanel() { return partsGenrePanel_; }
+	inline const std::vector<PartsPanel*>& GetPartsPanel(CharaData::CHARA_PARTS charaParts) { return partsPanel_[charaParts]; }
 };
