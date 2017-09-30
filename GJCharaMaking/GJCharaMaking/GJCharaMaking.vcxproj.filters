@@ -85,6 +85,9 @@
     <ClInclude Include="Classes\KeyboardDebuger.h">
       <Filter>Master</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\CollisionManager.h">
+      <Filter>Master</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />

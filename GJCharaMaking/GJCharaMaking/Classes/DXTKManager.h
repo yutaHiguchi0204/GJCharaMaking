@@ -11,6 +11,7 @@
 #include <CommonStates.h>
 #include <Keyboard.h>
 #include <SpriteBatch.h>
+#include <Mouse.h>
 
 // クラスの定義
 class DXTKManager : public SingletonDirector<DXTKManager>
@@ -29,6 +30,10 @@ public:
 	std::unique_ptr<DirectX::Keyboard> keyboard_;
 	std::unique_ptr<DirectX::Keyboard::KeyboardStateTracker> keyTracker_;
 
+	// マウス関係
+	std::unique_ptr<DirectX::Mouse> mouse_;
+	std::unique_ptr<DirectX::Mouse::ButtonStateTracker> mouseTracker_;
+
 private:
 	friend class SingletonDirector<DXTKManager>;
 
@@ -38,6 +43,10 @@ private:
 		// キーボード関係の初期化
 		keyboard_ = std::make_unique<DirectX::Keyboard>();
 		keyTracker_ = std::make_unique <DirectX::Keyboard::KeyboardStateTracker>();
+
+		// マウス関係の初期化
+		mouse_ = std::make_unique<DirectX::Mouse>();
+		mouseTracker_ = std::make_unique<DirectX::Mouse::ButtonStateTracker>();
 	}
 
 public:
@@ -61,5 +70,9 @@ public:
 		// キー入力情報を取得
 		DirectX::Keyboard::State key = keyboard_->GetState();
 		keyTracker_->Update(key);
+
+		// マウス情報を取得
+		DirectX::Mouse::State mouse = mouse_->GetState();
+		mouseTracker_->Update(mouse);
 	}
 };
