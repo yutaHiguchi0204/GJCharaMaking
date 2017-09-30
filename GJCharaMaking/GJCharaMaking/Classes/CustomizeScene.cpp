@@ -72,6 +72,9 @@ void CustomizeScene::Update()
 	// 天球の更新
 	skyDome_->Update();
 
+	// パーツビューの更新
+	partsView_->Update();
+
 	// プレイヤーの更新
 	player_->Update();
 
