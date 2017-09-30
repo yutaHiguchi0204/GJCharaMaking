@@ -168,6 +168,7 @@
     <ClInclude Include="Classes\IModel.h" />
     <ClInclude Include="Classes\KeyboardDebuger.h" />
     <ClInclude Include="Classes\Object.h" />
+    <ClInclude Include="Classes\Panel.h" />
     <ClInclude Include="Classes\PartsGenrePanel.h" />
     <ClInclude Include="Classes\PartsPanel.h" />
     <ClInclude Include="Classes\PartsView.h" />
