@@ -51,9 +51,13 @@ void PartsView::LoadPanel()
 		partsGenrePanel_.back()->Initialize(wstr);
 	}
 
-	// パーツジャンルの位置設定
+	// パーツジャンルの初期設定
 	for (auto itr = partsGenrePanel_.begin(); itr != partsGenrePanel_.end(); itr++)
 	{
+		// 番号登録
+		(*itr)->SetPanelNo(itr - partsGenrePanel_.begin());
+
+		// 位置設定
 		(*itr)->SetPos(SET_PARTS_GENRE_PANEL(itr - partsGenrePanel_.begin()));
 	}
 
@@ -67,6 +71,9 @@ void PartsView::LoadPanel()
 
 			wstring wstr = tmpData.modelFileData + L"UI";
 			partsPanel_[i].back()->Initialize(wstr);
+
+			// パーツパネルの番号登録
+			partsPanel_[i].back()->SetPanelNo(tmpData.partsNo);
 		}
 
 		// 位置設定
