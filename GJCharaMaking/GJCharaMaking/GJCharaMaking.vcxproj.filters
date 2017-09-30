@@ -88,6 +88,9 @@
     <ClInclude Include="Classes\CollisionManager.h">
       <Filter>Master</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\Panel.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />

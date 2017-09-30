@@ -6,10 +6,10 @@
 #pragma once
 
 // including header
-#include "Resource2D.h"
+#include "Panel.h"
 
 // class
-class PartsPanel : public Resource2D
+class PartsPanel : public Panel
 {
 public:
 	PartsPanel() {};
