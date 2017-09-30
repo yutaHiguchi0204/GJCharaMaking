@@ -21,10 +21,14 @@ private:
 private:
 	std::vector<PartsGenrePanel*> partsGenrePanel_;								// ジャンルボタン
 	std::vector<PartsPanel*> partsPanel_[CharaData::CHARA_PARTS_NUM];			// パーツボタン
+	std::unique_ptr<Resource2D> partsGenreFrame_;								// ジャンル枠
+	std::unique_ptr<Resource2D> partsPanelFrame_;								// パーツパネル枠
 
 public:
 	PartsView() { pos_ = ViewPos; };
 	virtual ~PartsView() {};
+
+	void Update();				// update
 
 	void LoadPanel();			// 全パネルをロード
 	void DrawPanel();			// 全パネルを描画
