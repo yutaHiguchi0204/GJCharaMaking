@@ -19,6 +19,20 @@ using namespace std;
 // method
 
 // =================================================
+// @brief	update
+// @param	none
+// @return	none
+// =================================================
+void PartsView::Update()
+{
+	CharaData& data = CharaData::GetInstance();
+
+	// アクティブパネルの設定
+	partsGenreFrame_->SetPos(partsGenrePanel_.at(data.GetPartsGenre())->GetPos());
+	partsPanelFrame_->SetPos(partsPanel_[data.GetPartsGenre()].at(data.GetModelData(data.GetPartsGenre()).partsNo)->GetPos());
+}
+
+// =================================================
 // @brief	全パネルのロード
 // @param	none
 // @return	none
@@ -61,6 +75,12 @@ void PartsView::LoadPanel()
 			(*itr)->SetPos(SET_PARTS_PANEL(itr - partsPanel_[i].begin()));
 		}
 	}
+
+	// アクティブパネル用枠の設定
+	partsGenreFrame_ = make_unique<Resource2D>();
+	partsGenreFrame_->Initialize(L"GenreFrame");
+	partsPanelFrame_ = make_unique<Resource2D>();
+	partsPanelFrame_->Initialize(L"PartsFrame");
 }
 
 // =================================================
@@ -85,4 +105,8 @@ void PartsView::DrawPanel()
 	{
 		parts->Draw();
 	}
+
+	// アクティブパネルに枠を描画
+	partsGenreFrame_->Draw();
+	partsPanelFrame_->Draw();
 }

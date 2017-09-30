@@ -58,7 +58,7 @@ void CharaData::ImportData()
 	{
 		PartsData data;
 
-		if (stoi(*itr) == 1)
+		if (stoi(*itr) == 0)
 		{
 			// ƒpƒlƒ‹”Ô†‚ğİ’è
 			partsNum++;
