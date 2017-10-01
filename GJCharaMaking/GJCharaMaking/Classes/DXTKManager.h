@@ -10,8 +10,8 @@
 
 #include <CommonStates.h>
 #include <Keyboard.h>
-#include <SpriteBatch.h>
 #include <Mouse.h>
+#include <SpriteBatch.h>
 
 // ƒNƒ‰ƒX‚Ì’è‹`
 class DXTKManager : public SingletonDirector<DXTKManager>
