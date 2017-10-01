@@ -131,25 +131,42 @@ void CustomizeScene::CheckCollision()
 		CollisionManager& collision = CollisionManager::GetInstance();
 
 		// パーツジャンル
-		auto partsGenre = partsView_->GetPartsGenrePanel();
+		CharaData& data = CharaData::GetInstance();
+		auto partsGenre = partsView_->GetPartsGenrePanel(); 
 		for (auto parts : partsGenre)
 		{
 			if (collision.IsPointerHit(Vector2(state.x, state.y), parts->GetPos(),Vector2(PARTS_GENREPANEL)))
 			{
 				// ジャンルパネルを押したときの処理
-				OutputDebugString(TEXT("PartsGenre\n"));
+				int genreNo = parts->GetPanelNo();
+
+				data.SetPartsGenre(
+					(genreNo)
+					? (CharaData::CHARA_PARTS)(genreNo)
+					: (CharaData::CHARA_PARTS)(genreNo)
+				);
+
 			}
 		}
 
 		// パーツパネル
-		CharaData& data = CharaData::GetInstance();
 		auto partsPanel = partsView_->GetPartsPanel(data.GetPartsGenre());
 		for (auto parts : partsPanel)
 		{
 			if (collision.IsPointerHit(Vector2(state.x, state.y), parts->GetPos(),Vector2(PARTS_PANEL)))
 			{
 				// パーツパネルを押したときの処理
-				OutputDebugString(TEXT("PartsPanel\n"));
+				int panelNo = parts->GetPanelNo();
+
+				data.SetModelData(
+					data.GetPartsGenre(),
+					(data.GetModelData(data.GetPartsGenre()).partsNo)
+					? (data.GetPartsData(data.GetPartsGenre()).at(panelNo))
+					: (data.GetPartsData(data.GetPartsGenre()).at(panelNo))
+				);
+
+				player_->ChangeParts(data.GetPartsGenre(), data.GetModelData(data.GetPartsGenre()));
+
 			}
 		}
 	}
