@@ -82,6 +82,9 @@ void CustomizeScene::Update()
 	playerRot_ -= 0.01f;
 	player_->GetRootParts()->SetRotate(Vector3(0, playerRot_, 0));
 
+	// マウスの当たり判定チェック
+	CheckCollision();
+
 	// キーボード処理（デバッグ用）
 	KeyboardDebuger& kd = KeyboardDebuger::GetInstance();
 	CharaData& data = CharaData::GetInstance();
@@ -119,21 +122,25 @@ void CustomizeScene::CheckCollision()
 {
 	// マウス準備
 	DXTKManager& dxtk = DXTKManager::GetInstance();
-	// Mouse::State state = dxtk.mouseTracker_->GetLaseState();
+	Mouse::State state = dxtk.mouseTracker_->GetLastState();
 
 	// 左クリックされたら
-	// if (state.leftbutton)
+	if (state.leftButton)
 	{
 		// 当たり判定用ライブラリの生成
 		CollisionManager& collision = CollisionManager::GetInstance();
 
 		// パーツジャンル
-		auto partsGenre = partsView_->GetPartsGenrePanel();
+		auto partsGenre = partsView_->GetPartsGenrePanel(); 
 		for (auto parts : partsGenre)
 		{
-			// if (collision.IsPointerHit(Vector2(state.x, state.y), parts->GetPos()))
+			if (collision.IsPointerHit(Vector2(state.x, state.y), parts->GetPos(), PARTS_GENREPANEL))
 			{
 				// ジャンルパネルを押したときの処理
+				CharaData& data = CharaData::GetInstance();
+				int genreNo = parts->GetPanelNo();
+
+				data.SetPartsGenre((CharaData::CHARA_PARTS)(genreNo));
 			}
 		}
 
@@ -142,9 +149,20 @@ void CustomizeScene::CheckCollision()
 		auto partsPanel = partsView_->GetPartsPanel(data.GetPartsGenre());
 		for (auto parts : partsPanel)
 		{
-			// if (collision.IsPointerHit(Vector2(state.x, state.y), parts->GetPos()))
+			if (collision.IsPointerHit(Vector2(state.x, state.y), parts->GetPos(), PARTS_PANEL))
 			{
 				// パーツパネルを押したときの処理
+				int panelNo = parts->GetPanelNo();
+
+				data.SetModelData(
+					data.GetPartsGenre(),
+					(data.GetModelData(data.GetPartsGenre()).partsNo,
+					(data.GetPartsData(data.GetPartsGenre()).at(panelNo)))
+				);
+
+				// プレイヤーのパーツ変更
+				player_->ChangeParts(data.GetPartsGenre(), data.GetModelData(data.GetPartsGenre()));
+
 			}
 		}
 	}

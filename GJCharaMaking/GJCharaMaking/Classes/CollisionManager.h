@@ -21,10 +21,12 @@ private:
 
 public:
 	// マウスポインタとパネルの当たり判定
-	bool IsPointerHit(const DirectX::SimpleMath::Vector2& mousePos, const DirectX::SimpleMath::Vector2& panelPos)
+	bool IsPointerHit(const DirectX::SimpleMath::Vector2& mousePos, const DirectX::SimpleMath::Vector2& panelPos
+	                 ,const DirectX::SimpleMath::Vector2& size)
 	{
 		// 判定
-		if (false/* ここで各座標を使ってチェック */)
+		if ((panelPos.x < mousePos.x  && panelPos.x + size.x  > mousePos.x) &&
+			(panelPos.y < mousePos.y  && panelPos.y + size.y  > mousePos.y))
 		{
 			return true;
 		}
