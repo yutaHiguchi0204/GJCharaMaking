@@ -93,7 +93,6 @@ void CustomizeScene::Update()
 		player_->ChangeParts(data.GetPartsGenre(), data.GetModelData(data.GetPartsGenre()));
 		playerRot_ = 0.0f;
 	}
-
 }
 
 // =================================================
@@ -158,9 +157,10 @@ void CustomizeScene::CheckCollision()
 				data.SetModelData(
 					data.GetPartsGenre(),
 					(data.GetModelData(data.GetPartsGenre()).partsNo,
-					(data.GetPartsData(data.GetPartsGenre()).at(panelNo))));
+					(data.GetPartsData(data.GetPartsGenre()).at(panelNo)))
+				);
 
-				//プレイヤーのパーツ変更
+				// プレイヤーのパーツ変更
 				player_->ChangeParts(data.GetPartsGenre(), data.GetModelData(data.GetPartsGenre()));
 
 			}
