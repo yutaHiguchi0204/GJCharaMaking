@@ -127,6 +127,8 @@ void CustomizeScene::CheckCollision()
 	// 左クリックされたら
 	if (state.leftButton)
 	{
+		CharaData& data = CharaData::GetInstance();
+
 		// 当たり判定用ライブラリの生成
 		CollisionManager& collision = CollisionManager::GetInstance();
 
@@ -134,35 +136,40 @@ void CustomizeScene::CheckCollision()
 		auto partsGenre = partsView_->GetPartsGenrePanel(); 
 		for (auto parts : partsGenre)
 		{
-			if (collision.IsPointerHit(Vector2(state.x, state.y), parts->GetPos(), PARTS_GENREPANEL))
+			// 現在選択中のものは通っても意味がないので処理しない
+			if (parts->GetPanelNo() != data.GetPartsGenre())
 			{
-				// ジャンルパネルを押したときの処理
-				CharaData& data = CharaData::GetInstance();
-				int genreNo = parts->GetPanelNo();
-
-				data.SetPartsGenre((CharaData::CHARA_PARTS)(genreNo));
+				if (collision.IsPointerHit(Vector2(state.x, state.y), parts->GetPos(), PARTS_GENREPANEL))
+				{
+					// ジャンルパネルを押したときの処理
+					int genreNo = parts->GetPanelNo();
+					data.SetPartsGenre((CharaData::CHARA_PARTS)(genreNo));
+				}
 			}
 		}
 
 		// パーツパネル
-		CharaData& data = CharaData::GetInstance();
 		auto partsPanel = partsView_->GetPartsPanel(data.GetPartsGenre());
 		for (auto parts : partsPanel)
 		{
-			if (collision.IsPointerHit(Vector2(state.x, state.y), parts->GetPos(), PARTS_PANEL))
+			// 現在選択中のものは通っても意味がないので処理しない
+			if (parts->GetPanelNo() != data.GetModelData(data.GetPartsGenre()).partsNo)
 			{
-				// パーツパネルを押したときの処理
-				int panelNo = parts->GetPanelNo();
+				if (collision.IsPointerHit(Vector2(state.x, state.y), parts->GetPos(), PARTS_PANEL))
+				{
+					// パーツパネルを押したときの処理
+					int panelNo = parts->GetPanelNo();
 
-				data.SetModelData(
-					data.GetPartsGenre(),
-					(data.GetModelData(data.GetPartsGenre()).partsNo,
-					(data.GetPartsData(data.GetPartsGenre()).at(panelNo)))
-				);
+					data.SetModelData(
+						data.GetPartsGenre(),
+						(data.GetModelData(data.GetPartsGenre()).partsNo,
+						(data.GetPartsData(data.GetPartsGenre()).at(panelNo)))
+					);
 
-				// プレイヤーのパーツ変更
-				player_->ChangeParts(data.GetPartsGenre(), data.GetModelData(data.GetPartsGenre()));
-
+					// プレイヤーのパーツ変更
+					player_->ChangeParts(data.GetPartsGenre(), data.GetModelData(data.GetPartsGenre()));
+					playerRot_ = 0.0f;
+				}
 			}
 		}
 	}
