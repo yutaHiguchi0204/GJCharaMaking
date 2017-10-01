@@ -60,7 +60,7 @@ bool KeyboardDebuger::ChangeCharaParts()
 		data.SetModelData(
 			data.GetPartsGenre(),
 			(data.GetModelData(data.GetPartsGenre()).partsNo - 1 < 0)
-			? (data.GetPartsData(data.GetPartsGenre()).at(data.GetPartsCount(data.GetPartsGenre())))
+			? (data.GetPartsData(data.GetPartsGenre()).at(data.GetPartsCount(data.GetPartsGenre()) - 1))
 			: (data.GetPartsData(data.GetPartsGenre()).at(data.GetModelData(data.GetPartsGenre()).partsNo - 1))
 		);
 
