@@ -24,10 +24,10 @@ void Player::LoadModel()
 	CharaData& data = CharaData::GetInstance();
 
 	// ƒ‚ƒfƒ‹“Çž
+	parts_.at(CharaData::ACCESSORY)->LoadModel(data.GetModelData(CharaData::ACCESSORY).modelFileData);
 	parts_.at(CharaData::HEAD)->LoadModel(data.GetModelData(CharaData::HEAD).modelFileData);
 	parts_.at(CharaData::BODY)->LoadModel(data.GetModelData(CharaData::BODY).modelFileData);
 	parts_.at(CharaData::LEG)->LoadModel(data.GetModelData(CharaData::LEG).modelFileData);
-	parts_.at(CharaData::ACCESSORY)->LoadModel(data.GetModelData(CharaData::ACCESSORY).modelFileData);
 }
 
 // =================================================
