@@ -115,7 +115,7 @@ void PlayScene::CheckCollision()
 	Mouse::State state = dxtk.mouseTracker_->GetLastState();
 
 	// 左クリックされたら
-	if (state.leftButton)
+	if (dxtk.mouseTracker_->leftButton == Mouse::ButtonStateTracker::PRESSED)
 	{
 		// 当たり判定用ライブラリの生成
 		CollisionManager& collision = CollisionManager::GetInstance();

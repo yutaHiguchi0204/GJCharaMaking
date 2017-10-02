@@ -133,7 +133,7 @@ void CustomizeScene::CheckCollision()
 	Mouse::State state = dxtk.mouseTracker_->GetLastState();
 
 	// ¶ƒNƒŠƒbƒN‚³‚ê‚½‚ç
-	if (state.leftButton)
+	if (dxtk.mouseTracker_->leftButton == Mouse::ButtonStateTracker::PRESSED)
 	{
 		CharaData& data = CharaData::GetInstance();
 
