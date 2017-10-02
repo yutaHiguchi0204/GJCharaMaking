@@ -11,6 +11,7 @@
 #include "Constant.h"
 #include "DXTKManager.h"
 #include "KeyboardDebuger.h"
+#include "SoundManager.h"
 
 // namespace
 using namespace DirectX;
@@ -62,6 +63,10 @@ void CustomizeScene::Initialize()
 	sceneChanger_ = make_unique<SceneChangerButton>();
 	sceneChanger_->Initialize(L"Play");
 	sceneChanger_->SetPos(Vector2(SIZE_WINDOW_WIDTH - 112.0f, 16.0f));
+
+	// BGMの再生
+	SoundManager& sound = SoundManager::GetInstance();
+	sound.PlayAudio(SoundManager::SOUND::CUSTOMIZE_BGM);
 }
 
 // =================================================
@@ -97,6 +102,10 @@ void CustomizeScene::Update()
 	{
 		player_->ChangeParts(data.GetPartsGenre(), data.GetModelData(data.GetPartsGenre()));
 		playerRot_ = 0.0f;
+
+		// SEの再生
+		SoundManager& sound = SoundManager::GetInstance();
+		sound.PlayAudio(SoundManager::SOUND::PARTS_CHANGE_SE);
 	}
 }
 
@@ -186,6 +195,13 @@ void CustomizeScene::CheckCollision()
 		{
 			// プレイシーンへ移行
 			ChangeScene(PLAY);
+
+			// 音の停止
+			SoundManager& sound = SoundManager::GetInstance();
+			sound.StopAudio();
+
+			// シーン遷移時SE
+			sound.PlayAudio(SoundManager::SOUND::SCENE_CHANGE_SE);
 		}
 	}
 }

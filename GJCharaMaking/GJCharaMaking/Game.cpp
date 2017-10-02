@@ -10,6 +10,7 @@
 #include "Classes\KeyboardDebuger.h"
 #include "Classes\Object.h"
 #include "Classes\SceneManager.h"
+#include "Classes\SoundManager.h"
 #include "Classes\TextureManager.h"
 
 extern void ExitGame();
@@ -43,9 +44,11 @@ void Game::Initialize(HWND window, int width, int height)
     m_timer.SetFixedTimeStep(true);
     m_timer.SetTargetElapsedSeconds(1.0 / 60);
     */
+	// DirectX Tool Kid関係の初期化
 	DXTKManager& dxtk = DXTKManager::GetInstance();
 	dxtk.Initializer(m_d3dDevice.Get(), m_d3dContext.Get());
 
+	// テクスチャマネージャ（２Ｄ用）の初期化
 	TextureManager& tm = TextureManager::GetInstance();
 	tm.Initializer(m_d3dDevice.Get(), m_d3dContext.Get());
 
@@ -54,8 +57,13 @@ void Game::Initialize(HWND window, int width, int height)
 	data.ImportData();
 	data.ImportGenreData();
 
+	// シーンの初期化
 	SceneManager& sm = SceneManager::GetInstance();
 	sm.Initialize(m_d3dDevice, m_d3dContext);
+
+	// サウンドマネージャの初期化
+	SoundManager& sound = SoundManager::GetInstance();
+	sound.Initializer();
 }
 
 // Executes the basic game loop.
@@ -75,11 +83,17 @@ void Game::Update(DX::StepTimer const& timer)
     float elapsedTime = float(timer.GetElapsedSeconds());
 
     // TODO: Add your game logic here.
+	// シーンの更新
 	SceneManager& sm = SceneManager::GetInstance();
 	sm.Update();
 
+	// キーボード情報の更新
 	KeyboardDebuger& kd = KeyboardDebuger::GetInstance();
 	kd.Update();
+
+	// サウンドマネージャの更新
+	SoundManager& sound = SoundManager::GetInstance();
+	sound.Update();
 
     elapsedTime;
 }
@@ -382,6 +396,10 @@ void Game::CreateResources()
 void Game::OnDeviceLost()
 {
     // TODO: Add Direct3D resource cleanup here.
+
+	// サウンドマネージャの終了処理
+	SoundManager& sound = SoundManager::GetInstance();
+	sound.Dispose();
 
     m_depthStencilView.Reset();
     m_renderTargetView.Reset();

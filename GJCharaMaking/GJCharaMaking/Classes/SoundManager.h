@@ -15,11 +15,12 @@
 class SoundManager : public SingletonDirector<SoundManager>
 {
 public:
-	enum class SOUND
+	enum SOUND
 	{
 		CUSTOMIZE_BGM,
 		PLAY_BGM,
 		PARTS_CHANGE_SE,
+		SCENE_CHANGE_SE
 	};
 
 private:
