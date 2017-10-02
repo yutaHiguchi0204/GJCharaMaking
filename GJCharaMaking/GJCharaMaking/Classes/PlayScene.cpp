@@ -128,15 +128,15 @@ void PlayScene::CheckCollision()
 		// シーン遷移用ボタン
 		if (collision.IsPointerHit(Vector2(state.x, state.y), sceneChanger_->GetPos(), SIZE_SCENE_CHANGER_BUTTON))
 		{
-			// プレイシーンへ移行
-			ChangeScene(CUSTOMIZE);
-
 			// 音の停止
 			SoundManager& sound = SoundManager::GetInstance();
 			sound.StopAudio();
 
 			// シーン遷移時SE
 			sound.PlayAudio(SoundManager::SOUND::SCENE_CHANGE_SE);
+
+			// プレイシーンへ移行
+			ChangeScene(CUSTOMIZE);
 		}
 	}
 }

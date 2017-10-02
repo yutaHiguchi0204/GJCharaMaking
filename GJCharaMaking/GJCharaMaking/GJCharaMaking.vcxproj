@@ -180,6 +180,7 @@
     <ClInclude Include="Classes\SceneChangerButton.h" />
     <ClInclude Include="Classes\SceneManager.h" />
     <ClInclude Include="Classes\SingletonDirector.h" />
+    <ClInclude Include="Classes\soundCue.h" />
     <ClInclude Include="Classes\SoundManager.h" />
     <ClInclude Include="Classes\TextureManager.h" />
     <ClInclude Include="Game.h" />

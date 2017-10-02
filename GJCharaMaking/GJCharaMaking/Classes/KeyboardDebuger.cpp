@@ -8,6 +8,7 @@
 #include "KeyboardDebuger.h"
 #include "CharaData.h"
 #include "DXTKManager.h"
+#include "SoundManager.h"
 
 // namespace
 using namespace DirectX;
@@ -45,6 +46,10 @@ bool KeyboardDebuger::ChangeCharaParts()
 			? (CharaData::CHARA_PARTS)(CharaData::CHARA_PARTS_NUM - 1)
 			: (CharaData::CHARA_PARTS)(data.GetPartsGenre() - 1)
 		);
+
+		// SEの再生
+		SoundManager& sound = SoundManager::GetInstance();
+		sound.PlayAudio(SoundManager::SOUND::PARTS_CHANGE_SE);
 	}
 	else if (state.Down)
 	{
@@ -53,6 +58,10 @@ bool KeyboardDebuger::ChangeCharaParts()
 			? CharaData::ACCESSORY
 			: (CharaData::CHARA_PARTS)(data.GetPartsGenre() + 1)
 		);
+
+		// SEの再生
+		SoundManager& sound = SoundManager::GetInstance();
+		sound.PlayAudio(SoundManager::SOUND::PARTS_CHANGE_SE);
 	}
 	// 左右キーでパーツ選択
 	else if (state.Left)

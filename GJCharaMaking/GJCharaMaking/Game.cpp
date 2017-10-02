@@ -57,13 +57,13 @@ void Game::Initialize(HWND window, int width, int height)
 	data.ImportData();
 	data.ImportGenreData();
 
-	// シーンの初期化
-	SceneManager& sm = SceneManager::GetInstance();
-	sm.Initialize(m_d3dDevice, m_d3dContext);
-
 	// サウンドマネージャの初期化
 	SoundManager& sound = SoundManager::GetInstance();
 	sound.Initializer();
+
+	// シーンの初期化
+	SceneManager& sm = SceneManager::GetInstance();
+	sm.Initialize(m_d3dDevice, m_d3dContext);
 }
 
 // Executes the basic game loop.
