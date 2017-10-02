@@ -17,6 +17,7 @@ class CharaData : public SingletonDirector<CharaData>
 public:
 	enum CHARA_PARTS
 	{
+		ACCESSORY,
 		HEAD,
 		BODY,
 		LEG,

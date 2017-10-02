@@ -24,6 +24,7 @@ void Player::LoadModel()
 	CharaData& data = CharaData::GetInstance();
 
 	// ƒ‚ƒfƒ‹“Çž
+	parts_.at(CharaData::ACCESSORY)->LoadModel(data.GetModelData(CharaData::ACCESSORY).modelFileData);
 	parts_.at(CharaData::HEAD)->LoadModel(data.GetModelData(CharaData::HEAD).modelFileData);
 	parts_.at(CharaData::BODY)->LoadModel(data.GetModelData(CharaData::BODY).modelFileData);
 	parts_.at(CharaData::LEG)->LoadModel(data.GetModelData(CharaData::LEG).modelFileData);
@@ -38,6 +39,7 @@ void Player::SetParentParts()
 {
 	parts_.at(CharaData::BODY)->SetParent(parts_.at(CharaData::LEG).get());
 	parts_.at(CharaData::HEAD)->SetParent(parts_.at(CharaData::BODY).get());
+	parts_.at(CharaData::ACCESSORY)->SetParent(parts_.at(CharaData::HEAD).get());
 }
 
 // =================================================
@@ -49,4 +51,5 @@ void Player::SetOffset()
 {
 	parts_.at(CharaData::BODY)->SetTranslate(Vector3(0, 0, 0));
 	parts_.at(CharaData::HEAD)->SetTranslate(Vector3(0, 0, 0));
+	parts_.at(CharaData::ACCESSORY)->SetTranslate(Vector3(0, 0, 0));
 }

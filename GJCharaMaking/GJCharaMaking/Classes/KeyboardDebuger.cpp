@@ -41,7 +41,7 @@ bool KeyboardDebuger::ChangeCharaParts()
 	if (state.Up)
 	{
 		data.SetPartsGenre(
-			(data.GetPartsGenre() - 1 < CharaData::HEAD)
+			(data.GetPartsGenre() - 1 < CharaData::ACCESSORY)
 			? (CharaData::CHARA_PARTS)(CharaData::CHARA_PARTS_NUM - 1)
 			: (CharaData::CHARA_PARTS)(data.GetPartsGenre() - 1)
 		);
@@ -50,7 +50,7 @@ bool KeyboardDebuger::ChangeCharaParts()
 	{
 		data.SetPartsGenre(
 			(data.GetPartsGenre() + 1 >= CharaData::CHARA_PARTS_NUM)
-			? CharaData::HEAD
+			? CharaData::ACCESSORY
 			: (CharaData::CHARA_PARTS)(data.GetPartsGenre() + 1)
 		);
 	}
