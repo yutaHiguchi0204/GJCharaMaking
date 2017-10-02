@@ -23,8 +23,8 @@ public:
 	Resource2D() {};
 	virtual ~Resource2D() {};
 
-	void Initialize(const std::wstring file);									// ‰Šú‰»
-	void Draw();																// •`‰æ
+	virtual void Initialize(const std::wstring file);							// ‰Šú‰»
+	virtual void Draw();														// •`‰æ
 
 	void SetPos(const DirectX::SimpleMath::Vector2& pos) { pos_ = pos; }		// À•Wİ’è
 	inline const DirectX::SimpleMath::Vector2& GetPos() { return pos_; }		// À•Wæ“¾
