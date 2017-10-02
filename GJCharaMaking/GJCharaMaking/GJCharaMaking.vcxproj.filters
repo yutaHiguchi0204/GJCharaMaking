@@ -159,22 +159,19 @@
     </Manifest>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\ground_200m.FBX">
+    <MeshContentTask Include="Assets\Accessory1.FBX">
       <Filter>Model</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\skyDome.FBX">
+    <MeshContentTask Include="Assets\Accessory2.FBX">
+      <Filter>Model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\Body1.FBX">
       <Filter>Model</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\Body2.FBX">
       <Filter>Model</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\Head3.FBX">
-      <Filter>Model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\Leg2.FBX">
-      <Filter>Model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\Body1.FBX">
+    <MeshContentTask Include="Assets\ground_200m.FBX">
       <Filter>Model</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\Head1.FBX">
@@ -183,7 +180,16 @@
     <MeshContentTask Include="Assets\Head2.FBX">
       <Filter>Model</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\Head3.FBX">
+      <Filter>Model</Filter>
+    </MeshContentTask>
     <MeshContentTask Include="Assets\Leg1.FBX">
+      <Filter>Model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\Leg2.FBX">
+      <Filter>Model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\skyDome.FBX">
       <Filter>Model</Filter>
     </MeshContentTask>
   </ItemGroup>
