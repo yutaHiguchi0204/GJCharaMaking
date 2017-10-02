@@ -52,10 +52,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ImportGroup Label="ExtensionSettings">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.props" />
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\MeshContentTask.props" />
-  </ImportGroup>
+  <ImportGroup Label="ExtensionSettings" />
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
@@ -71,16 +68,16 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\DirectXTK\Inc;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\DirectXTK\Bin\Desktop_2015\Win32\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\cri\pc\include;C:\DirectXTK\Inc;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\cri\pc\libs\x86;C:\DirectXTK\Bin\Desktop_2015\Win32\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\DirectXTK\Inc;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\DirectXTK\Bin\Desktop_2015\Win32\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\cri\pc\include;C:\DirectXTK\Inc;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\cri\pc\libs\x86;C:\DirectXTK\Bin\Desktop_2015\Win32\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -161,6 +158,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Classes\ADX2Le.h" />
     <ClInclude Include="Classes\Camera.h" />
     <ClInclude Include="Classes\Character.h" />
     <ClInclude Include="Classes\CharaData.h" />
@@ -182,12 +180,14 @@
     <ClInclude Include="Classes\SceneChangerButton.h" />
     <ClInclude Include="Classes\SceneManager.h" />
     <ClInclude Include="Classes\SingletonDirector.h" />
+    <ClInclude Include="Classes\SoundManager.h" />
     <ClInclude Include="Classes\TextureManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="StepTimer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Classes\ADX2Le.cpp" />
     <ClCompile Include="Classes\Camera.cpp" />
     <ClCompile Include="Classes\Character.cpp" />
     <ClCompile Include="Classes\CharaData.cpp" />
@@ -235,8 +235,5 @@
     <MeshContentTask Include="Assets\skyDome.FBX" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\MeshContentTask.targets" />
-  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
 </Project>

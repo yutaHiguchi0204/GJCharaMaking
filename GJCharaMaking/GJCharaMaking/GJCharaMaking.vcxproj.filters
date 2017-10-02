@@ -23,6 +23,9 @@
     <Filter Include="GUI">
       <UniqueIdentifier>{838e4c88-7aaf-4387-a240-bb57df43223c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Audio">
+      <UniqueIdentifier>{a6209330-5a67-44c8-bf6f-4aca0fc7415e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -94,6 +97,12 @@
     <ClInclude Include="Classes\SceneChangerButton.h">
       <Filter>GUI</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\SoundManager.h">
+      <Filter>Master</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\ADX2Le.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -143,6 +152,9 @@
     </ClCompile>
     <ClCompile Include="Classes\SceneChangerButton.cpp">
       <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\ADX2Le.cpp">
+      <Filter>Audio</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
