@@ -109,4 +109,6 @@ void SceneManager::ChangeScene(Scene::SCENE scene)
 		assert(0);
 		break;
 	}
+
+	scene_->Initialize();
 }

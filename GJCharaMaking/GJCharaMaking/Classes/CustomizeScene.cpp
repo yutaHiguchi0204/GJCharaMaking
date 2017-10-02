@@ -57,6 +57,11 @@ void CustomizeScene::Initialize()
 	partsView_ = make_unique<PartsView>();
 	partsView_->Initialize(L"customView");
 	partsView_->LoadPanel();
+
+	// シーン遷移用ボタンの読み込み
+	sceneChanger_ = make_unique<SceneChangerButton>();
+	sceneChanger_->Initialize(L"Play");
+	sceneChanger_->SetPos(Vector2(SIZE_WINDOW_WIDTH - 112.0f, 16.0f));
 }
 
 // =================================================
@@ -72,15 +77,15 @@ void CustomizeScene::Update()
 	// 天球の更新
 	skyDome_->Update();
 
-	// パーツビューの更新
-	partsView_->Update();
-
 	// プレイヤーの更新
 	player_->Update();
 
 	// プレイヤーをローテーションさせる
 	playerRot_ -= 0.01f;
 	player_->GetRootParts()->SetRotate(Vector3(0, playerRot_, 0));
+
+	// パーツビューの更新
+	partsView_->Update();
 
 	// マウスの当たり判定チェック
 	CheckCollision();
@@ -111,6 +116,9 @@ void CustomizeScene::Draw()
 	// パーツビューの描画
 	partsView_->Draw();
 	partsView_->DrawPanel();
+
+	// シーン遷移用ボタンの描画
+	sceneChanger_->Draw();
 }
 
 // =================================================
@@ -125,7 +133,7 @@ void CustomizeScene::CheckCollision()
 	Mouse::State state = dxtk.mouseTracker_->GetLastState();
 
 	// 左クリックされたら
-	if (state.leftButton)
+	if (dxtk.mouseTracker_->leftButton == Mouse::ButtonStateTracker::PRESSED)
 	{
 		CharaData& data = CharaData::GetInstance();
 
@@ -139,7 +147,7 @@ void CustomizeScene::CheckCollision()
 			// 現在選択中のものは通っても意味がないので処理しない
 			if (parts->GetPanelNo() != data.GetPartsGenre())
 			{
-				if (collision.IsPointerHit(Vector2(state.x, state.y), parts->GetPos(), PARTS_GENREPANEL))
+				if (collision.IsPointerHit(Vector2(state.x, state.y), parts->GetPos(), SIZE_PARTS_GENREPANEL))
 				{
 					// ジャンルパネルを押したときの処理
 					int genreNo = parts->GetPanelNo();
@@ -155,7 +163,7 @@ void CustomizeScene::CheckCollision()
 			// 現在選択中のものは通っても意味がないので処理しない
 			if (parts->GetPanelNo() != data.GetModelData(data.GetPartsGenre()).partsNo)
 			{
-				if (collision.IsPointerHit(Vector2(state.x, state.y), parts->GetPos(), PARTS_PANEL))
+				if (collision.IsPointerHit(Vector2(state.x, state.y), parts->GetPos(), SIZE_PARTS_PANEL))
 				{
 					// パーツパネルを押したときの処理
 					int panelNo = parts->GetPanelNo();
@@ -171,6 +179,13 @@ void CustomizeScene::CheckCollision()
 					playerRot_ = 0.0f;
 				}
 			}
+		}
+
+		// シーン遷移用ボタン
+		if (collision.IsPointerHit(Vector2(state.x, state.y), sceneChanger_->GetPos(), SIZE_SCENE_CHANGER_BUTTON))
+		{
+			// プレイシーンへ移行
+			ChangeScene(PLAY);
 		}
 	}
 }

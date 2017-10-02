@@ -6,7 +6,9 @@
 
 // include 
 #include "PlayScene.h"
+#include "CollisionManager.h"
 #include "Constant.h"
+#include "DXTKManager.h"
 #include "KeyboardDebuger.h"
 
 using namespace DirectX;
@@ -47,6 +49,11 @@ void PlayScene::Initialize()
 	// プレイヤーの読み込み
 	player_ = make_unique<Player>();
 	player_->Initialize(CharaData::CHARA_PARTS_NUM);
+
+	// シーン遷移用ボタンの読み込み
+	sceneChanger_ = make_unique<SceneChangerButton>();
+	sceneChanger_->Initialize(L"Custom");
+	sceneChanger_->SetPos(Vector2(SIZE_WINDOW_WIDTH - 112.0f, 16.0f));
 }
 
 /*==============================================================
@@ -71,6 +78,9 @@ void PlayScene::Update()
 
 	// プレイヤーの更新
 	player_->Update();
+
+	// マウスの当たり判定チェック
+	CheckCollision();
 }
 
 /*==============================================================
@@ -88,4 +98,33 @@ void PlayScene::Draw()
 
 	// プレイヤーの描画
 	player_->Draw();
+
+	// シーン遷移用ボタンの描画
+	sceneChanger_->Draw();
+}
+
+// =================================================
+// @brief	当たり判定チェック
+// @param	none
+// @return	none
+// =================================================
+void PlayScene::CheckCollision()
+{
+	// マウス準備
+	DXTKManager& dxtk = DXTKManager::GetInstance();
+	Mouse::State state = dxtk.mouseTracker_->GetLastState();
+
+	// 左クリックされたら
+	if (dxtk.mouseTracker_->leftButton == Mouse::ButtonStateTracker::PRESSED)
+	{
+		// 当たり判定用ライブラリの生成
+		CollisionManager& collision = CollisionManager::GetInstance();
+
+		// シーン遷移用ボタン
+		if (collision.IsPointerHit(Vector2(state.x, state.y), sceneChanger_->GetPos(), SIZE_SCENE_CHANGER_BUTTON))
+		{
+			// プレイシーンへ移行
+			ChangeScene(CUSTOMIZE);
+		}
+	}
 }
