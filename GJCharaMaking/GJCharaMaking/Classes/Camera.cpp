@@ -28,6 +28,9 @@ Camera::Camera(int width, int height)
 	aspect_ = (float)width / height;
 	nearClip_ = 0.1f;
 	farClip_ = 1000.0f;
+
+	// ƒJƒƒ‰‚ÌŠp“x‚Ì‰Šú‰»
+	angle_ = XMConvertToRadians(270.0f);
 }
 
 // =================================================

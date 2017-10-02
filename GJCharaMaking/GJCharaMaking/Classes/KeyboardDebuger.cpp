@@ -12,6 +12,7 @@
 
 // namespace
 using namespace DirectX;
+using namespace DirectX::SimpleMath;
 using namespace std;
 
 // method
@@ -98,15 +99,19 @@ bool KeyboardDebuger::ChangeCharaParts()
 void KeyboardDebuger::MoveCamera(const shared_ptr<Camera>& camera)
 {
 	DXTKManager& dxtk = DXTKManager::GetInstance();
-	Keyboard::State state = dxtk.keyTracker_->pressed;
+	Keyboard::State state = dxtk.keyboard_->GetState();
 
 	// 左右キーでカメラを動かす
 	if (state.Left)
 	{
-		// 後で追加予定
+		camera->SetAngle(camera->GetAngle() + 0.02f);
 	}
 	else if (state.Right)
 	{
-		// 後で追加予定
+		camera->SetAngle(camera->GetAngle() - 0.02f);
 	}
+
+	// カメラの更新
+	float cameraAngle = camera->GetAngle();
+	camera->SetEyePos(Vector3(cosf(cameraAngle) * 25.0f, 10.0f, sinf(cameraAngle) * 25.0f));
 }
