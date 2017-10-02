@@ -11,6 +11,7 @@
 #include "Constant.h"
 #include "DXTKManager.h"
 #include "KeyboardDebuger.h"
+#include "SoundManager.h"
 
 // namespace
 using namespace DirectX;
@@ -62,6 +63,10 @@ void CustomizeScene::Initialize()
 	sceneChanger_ = make_unique<SceneChangerButton>();
 	sceneChanger_->Initialize(L"Play");
 	sceneChanger_->SetPos(Vector2(SIZE_WINDOW_WIDTH - 112.0f, 16.0f));
+
+	// BGMの再生
+	SoundManager& sound = SoundManager::GetInstance();
+	sound.PlayAudio(SoundManager::SOUND::CUSTOMIZE_BGM);
 }
 
 // =================================================
@@ -97,6 +102,10 @@ void CustomizeScene::Update()
 	{
 		player_->ChangeParts(data.GetPartsGenre(), data.GetModelData(data.GetPartsGenre()));
 		playerRot_ = 0.0f;
+
+		// SEの再生
+		SoundManager& sound = SoundManager::GetInstance();
+		sound.PlayAudio(SoundManager::SOUND::PARTS_CHANGE_SE);
 	}
 }
 
@@ -152,6 +161,10 @@ void CustomizeScene::CheckCollision()
 					// ジャンルパネルを押したときの処理
 					int genreNo = parts->GetPanelNo();
 					data.SetPartsGenre((CharaData::CHARA_PARTS)(genreNo));
+
+					// SEの再生
+					SoundManager& sound = SoundManager::GetInstance();
+					sound.PlayAudio(SoundManager::SOUND::PARTS_CHANGE_SE);
 				}
 			}
 		}
@@ -177,6 +190,10 @@ void CustomizeScene::CheckCollision()
 					// プレイヤーのパーツ変更
 					player_->ChangeParts(data.GetPartsGenre(), data.GetModelData(data.GetPartsGenre()));
 					playerRot_ = 0.0f;
+
+					// SEの再生
+					SoundManager& sound = SoundManager::GetInstance();
+					sound.PlayAudio(SoundManager::SOUND::PARTS_CHANGE_SE);
 				}
 			}
 		}
@@ -184,6 +201,13 @@ void CustomizeScene::CheckCollision()
 		// シーン遷移用ボタン
 		if (collision.IsPointerHit(Vector2(state.x, state.y), sceneChanger_->GetPos(), SIZE_SCENE_CHANGER_BUTTON))
 		{
+			// 音の停止
+			SoundManager& sound = SoundManager::GetInstance();
+			sound.StopAudio();
+
+			// シーン遷移時SE
+			sound.PlayAudio(SoundManager::SOUND::SCENE_CHANGE_SE);
+
 			// プレイシーンへ移行
 			ChangeScene(PLAY);
 		}

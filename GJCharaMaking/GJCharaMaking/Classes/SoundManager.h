@@ -15,11 +15,12 @@
 class SoundManager : public SingletonDirector<SoundManager>
 {
 public:
-	enum class SOUND
+	enum SOUND
 	{
 		CUSTOMIZE_BGM,
 		PLAY_BGM,
 		PARTS_CHANGE_SE,
+		SCENE_CHANGE_SE
 	};
 
 private:
@@ -32,8 +33,8 @@ public:
 	// èâä˙âª
 	void Initializer()
 	{
-		ADX2Le::Initialize("Audio/GJCharaMaking.acf");
-		ADX2Le::LoadAcb("Audio/soundCue.acb", "Audio/soundCue.awb");
+		ADX2Le::Initialize("Resources/Audio/GJCharaMaking.acf");
+		ADX2Le::LoadAcb("Resources/Audio/soundCue.acb", "Resources/Audio/soundCue.awb");
 	}
 
 	// çXêV
