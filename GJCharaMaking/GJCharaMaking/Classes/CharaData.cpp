@@ -78,7 +78,7 @@ void CharaData::ImportData()
 	{
 		modelData_[i] = charaPartsData_[i].at(0);
 	}
-	charaParts_ = HEAD;
+	charaParts_ = ACCESSORY;
 }
 
 // =================================================

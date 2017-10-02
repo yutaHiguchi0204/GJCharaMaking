@@ -26,6 +26,9 @@ protected:
 	float nearClip_;												// 手前の表示限界距離
 	float farClip_;													// 奥の表示限界距離
 
+	// カメラの角度
+	float angle_;
+
 public:
 	Camera(int width, int height);
 	virtual ~Camera() {};
@@ -43,4 +46,8 @@ public:
 	void SetAspect(float aspect)									{ aspect_ = aspect; };			// アスペクト比の設定
 	void SetNearClip(float nearClip)								{ nearClip_ = nearClip; };		// 手前の表示限界距離の設定
 	void SetFarClip(float farClip)									{ farClip_ = farClip; };		// 奥の表示限界距離の設定
+
+	// カメラの回転用
+	void SetAngle(float angle)										{ angle_ = angle; }
+	inline const float GetAngle()									{ return angle_; }
 };
